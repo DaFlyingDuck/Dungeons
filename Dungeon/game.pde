@@ -13,6 +13,27 @@ void game() {
   line(0, height, width, 0);
   line(0, 0, width, height);
   
+  // Draw Exits
+  nRoom = map.get(myHero.roomX, myHero.roomY - 1);
+  wRoom = map.get(myHero.roomX - 1, myHero.roomY);
+  sRoom = map.get(myHero.roomX, myHero.roomY + 1);  
+  eRoom = map.get(myHero.roomX + 1, myHero.roomY);  
+
+  noStroke();
+  fill(black);
+  if(nRoom == black) {
+    ellipse(width/2, height * 0.1, 100, 100);
+  }
+  if(wRoom == black) {
+    ellipse(width * 0.1, height/2, 100, 100);
+  }
+  if(sRoom == black) {
+    ellipse(width/2, height * 0.9, 100, 100);
+  }
+  if(eRoom == black) {
+    ellipse(width * 0.9, height/2, 100, 100);
+  }
+  
   // Room floor square
   stroke(mentalAsylum2);
   strokeWeight(5);
@@ -21,5 +42,5 @@ void game() {
   
   myHero.act();
   myHero.show();
-  
+ 
 }
