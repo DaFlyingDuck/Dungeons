@@ -63,6 +63,8 @@ class Hero extends GameObject {
     fill(mentalAsylum5);
     circle(loc.x, loc.y, size);
     
+    println(roomX, roomY);
+    
   }
   
 }

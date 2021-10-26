@@ -30,6 +30,8 @@ AnimatedGIF introGIF;
 
 Button startBut;
 
+ArrayList<GameObject> myObjects;
+ArrayList<DarknessCell> darkness;
 Hero myHero;
 
 void setup() {
@@ -45,8 +47,27 @@ void setup() {
 
   introGIF = new AnimatedGIF(3, "frame_", "_delay-0.1s.gif"); 
   startBut = new Button("START", width/2, height/2, 250, 100, mentalAsylum5, mentalAsylum2, 30);
-
+  
+  // Create Objects
+  myObjects = new ArrayList<GameObject>();
   myHero = new Hero();
+  myObjects.add(myHero);
+  
+  //Create Darkness
+  darkness = new ArrayList<DarknessCell>(10000);
+  float size = 100;
+  for (int i = 0; i < 10000; i ++) {
+    for(int j = 0; j < width / size; j ++) {   //messed up and replace later if not work
+     if(i <= width/size * (j + 1) && i > width * j) darkness.add(new DarknessCell(i * size - size/2, size/2, size));
+     if(i <= width/size * (j + 1) && i > width/size * (j + 1)) darkness.add(new DarknessCell((i - width/size * (j + 1)) * size - size/2, 3 * size/2, size));
+     if(i <= width/size * (j + 1) && i > width/size * (j + 1)) darkness.add(new DarknessCell((i - width/size * (j + 1)) * size - size/2, 5 * size/2, size));
+     if(i <= width/size * (j + 1) && i > width/size * (j + 1)) darkness.add(new DarknessCell((i - width/size * (j + 1)) * size - size/2, 7 * size/2, size));
+     if(i <= width/size * (j + 1) && i > width/size * (j + 1)) darkness.add(new DarknessCell((i - width/size * (j + 1)) * size - size/2, 9 * size/2, size));
+     if(i <= width/size * (j + 1) && i > width/size * (j + 1)) darkness.add(new DarknessCell((i - width/size * (j + 1)) * size - size/2, 11 * size/2, size));
+   }
+  
+  }
+  
 }
 
 void draw() {

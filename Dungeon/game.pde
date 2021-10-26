@@ -1,4 +1,12 @@
 void game() {
+  drawRoom();
+  drawGameObjects();
+  drawLightLayer();
+ 
+}
+
+
+void drawRoom() {
   
   background(0);
   
@@ -40,7 +48,26 @@ void game() {
   fill(mentalAsylum3);
   rect(width/2, height/2, 3 * width/4, 3 * height/4);
   
-  myHero.act();
-  myHero.show();
- 
+}
+
+void drawGameObjects() {
+
+  for (int i = 0; i < myObjects.size(); i ++) {
+    GameObject myObj = myObjects.get(i);
+    
+    myObj.act();
+    myObj.show();
+    
+  }  
+  
+}
+void drawLightLayer() {
+
+  for (int i = 0; i < darkness.size(); i ++) {
+    DarknessCell myDark = darkness.get(i);  
+    myDark.act();
+    myDark.show();
+    
+  }  
+  
 }
