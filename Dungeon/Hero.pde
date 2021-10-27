@@ -40,18 +40,22 @@ class Hero extends GameObject {
     if (nRoom == black && loc.y == height/2 - 3 * height/8 + size/2 && loc.x > width/2 - 50 && loc.x < width/2 + 50) {
       roomY --;
       loc = new PVector(width/2, height/2 + 3 * height/8 - size/2 - 10);
+      println(roomX, roomY);
     }
     if(wRoom == black && loc.x == width/2 - 3 * width/8 + size/2 && loc.y > height/2 - 50 && loc.y < height/2 + 50) {
       roomX --;
       loc = new PVector(width/2 + 3 * width/8 - size/2 - 10, height/2);
+      println(roomX, roomY);
     }
     if(sRoom == black && loc.y == height/2 + 3 * height/8 - size/2 && loc.x > width/2 - 50 && loc.x < width/2 + 50) {
       roomY ++;
       loc = new PVector(width/2, height/2 - 3 * height/8 + size/2 + 10);
+      println(roomX, roomY);
     }
     if(eRoom == black && loc.x == width/2 + 3 * width/8 - size/2 && loc.y > height/2 - 50 && loc.y < height/2 + 50) {
       roomX ++;
       loc = new PVector(width/2 - 3 * width/8 + size/2 + 10, height/2);
+      println(roomX, roomY);
     }
     
     
@@ -62,8 +66,7 @@ class Hero extends GameObject {
     stroke(mentalAsylum5);
     fill(mentalAsylum5);
     circle(loc.x, loc.y, size);
-    
-    println(roomX, roomY);
+   
     
   }
   

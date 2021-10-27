@@ -35,7 +35,7 @@ ArrayList<DarknessCell> darkness;
 Hero myHero;
 
 void setup() {
-
+  
   rectMode(CENTER);
   imageMode(CENTER);
   map = loadImage("map.png");
@@ -55,16 +55,19 @@ void setup() {
   
   //Create Darkness
   darkness = new ArrayList<DarknessCell>(10000);
-  float size = 100;
+  float size = 8;
+  int numRow = 0, numCol = 0;
   for (int i = 0; i < 10000; i ++) {
-    for(int j = 0; j < width / size; j ++) {   //messed up and replace later if not work
-     if(i <= width/size * (j + 1) && i > width * j) darkness.add(new DarknessCell(i * size - size/2, size/2, size));
-     if(i <= width/size * (j + 1) && i > width/size * (j + 1)) darkness.add(new DarknessCell((i - width/size * (j + 1)) * size - size/2, 3 * size/2, size));
-     if(i <= width/size * (j + 1) && i > width/size * (j + 1)) darkness.add(new DarknessCell((i - width/size * (j + 1)) * size - size/2, 5 * size/2, size));
-     if(i <= width/size * (j + 1) && i > width/size * (j + 1)) darkness.add(new DarknessCell((i - width/size * (j + 1)) * size - size/2, 7 * size/2, size));
-     if(i <= width/size * (j + 1) && i > width/size * (j + 1)) darkness.add(new DarknessCell((i - width/size * (j + 1)) * size - size/2, 9 * size/2, size));
-     if(i <= width/size * (j + 1) && i > width/size * (j + 1)) darkness.add(new DarknessCell((i - width/size * (j + 1)) * size - size/2, 11 * size/2, size));
-   }
+    while (numRow <= width/size && numCol <= height/size) {
+      println(numRow, numCol);
+      darkness.add(new DarknessCell(numRow * size + size/2, numCol * size + size/2, size));
+      numRow ++;
+      if (numRow > width/size) {
+        numRow = 0;
+        numCol ++;
+      }
+    }
+       
   
   }
   
