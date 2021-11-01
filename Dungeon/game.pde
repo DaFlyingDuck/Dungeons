@@ -2,6 +2,7 @@ void game() {
   drawRoom();
   drawGameObjects();
   drawLightLayer();
+  drawMiniMap();
  
 }
 
@@ -61,6 +62,8 @@ void drawGameObjects() {
   }  
   
 }
+
+
 void drawLightLayer() {
 
   for (int i = 0; i < darkness.size(); i ++) {
@@ -69,5 +72,26 @@ void drawLightLayer() {
     myDark.show();
     
   }  
+  
+}
+
+void drawMiniMap() {
+  int size = 8;
+  int x = 0;
+  int y = 0;
+  while (y < map.height) {
+    color c = map.get(x,y);  
+    fill(c, 200);
+    noStroke();
+    square(30 + 8 * x, 30 + 8 * y, size);
+    x ++;
+    if (x >= map.width) {
+      x = 0;
+      y ++;
+    }
+  }
+  
+  fill(#D30DC0);
+  square(30 + 7 * myHero.roomX, 30 + 7 * myHero.roomY, 8);
   
 }
