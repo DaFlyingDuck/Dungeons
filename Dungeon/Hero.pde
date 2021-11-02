@@ -1,6 +1,7 @@
 class Hero extends GameObject {
   
   int roomX, roomY;
+  Weapon myWeapon;
   
   Hero() {
     
@@ -10,6 +11,7 @@ class Hero extends GameObject {
     size = 30;
     roomX = 1;
     roomY = 1;
+    myWeapon = new Weapon();
     
     
     
@@ -19,6 +21,8 @@ class Hero extends GameObject {
     
     super.act();
     
+    myWeapon.update();
+    if (spacekey) myWeapon.shoot();
     
     //Movement Code
     if(wkey) vel.y = -2;
@@ -41,21 +45,61 @@ class Hero extends GameObject {
       roomY --;
       loc = new PVector(width/2, height/2 + 3 * height/8 - size/2 - 10);
       println(roomX, roomY);
+  
+      int r = 0;
+      while (r < myObjects.size()) {
+      GameObject myObj = myObjects.get(r);
+        if (myObj instanceof Bullet) {
+          myObj.lives = 0;
+        }
+        r ++;
+      }
+      
     }
     if(wRoom == black && loc.x == width/2 - 3 * width/8 + size/2 && loc.y > height/2 - 50 && loc.y < height/2 + 50) {
       roomX --;
       loc = new PVector(width/2 + 3 * width/8 - size/2 - 10, height/2);
       println(roomX, roomY);
+      
+      int r = 0;
+      while (r < myObjects.size()) {
+      GameObject myObj = myObjects.get(r);
+        if (myObj instanceof Bullet) {
+          myObj.lives = 0;
+        }
+        r ++;
+      }
+      
     }
     if(sRoom == black && loc.y == height/2 + 3 * height/8 - size/2 && loc.x > width/2 - 50 && loc.x < width/2 + 50) {
       roomY ++;
       loc = new PVector(width/2, height/2 - 3 * height/8 + size/2 + 10);
       println(roomX, roomY);
+      
+      int r = 0;
+      while (r < myObjects.size()) {
+      GameObject myObj = myObjects.get(r);
+        if (myObj instanceof Bullet) {
+          myObj.lives = 0;
+        }
+        r ++;
+      }
+      
     }
     if(eRoom == black && loc.x == width/2 + 3 * width/8 - size/2 && loc.y > height/2 - 50 && loc.y < height/2 + 50) {
       roomX ++;
       loc = new PVector(width/2 - 3 * width/8 + size/2 + 10, height/2);
       println(roomX, roomY);
+      
+      int r = 0;
+      while (r < myObjects.size()) {
+      GameObject myObj = myObjects.get(r);
+        if (myObj instanceof Bullet) {
+          myObj.lives = 0;
+        }
+        r ++;
+      }
+      
     }
     
     

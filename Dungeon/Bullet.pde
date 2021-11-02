@@ -3,9 +3,10 @@ class Bullet extends GameObject {
   color colour;
   
   
-  Bullet(PVector speed, color c, int s) {
-    loc = new PVector(myHero.loc);
-    vel = new PVector(speed);
+  Bullet(float speedx, float speedy, color c, int s) {
+    lives = 1;
+    loc = new PVector(myHero.loc.x, myHero.loc.y);
+    vel = new PVector(speedx, speedy);
     size = s;
     colour = c;
     
@@ -14,16 +15,20 @@ class Bullet extends GameObject {
   
   void act() {
     super.act();
+    
+    if (loc.x < 0) lives = 0;
+    if (loc.x > width) lives = 0;
+    if (loc.y < 0) lives = 0;
+    if (loc.y > height) lives = 0;
+    
   }
   
   
   void show() {
     
     fill(colour);
+    noStroke();
     circle(loc.x, loc.y, size);
-  
-  
-  
-  
-  
+  }
+
 }

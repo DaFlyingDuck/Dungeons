@@ -53,11 +53,18 @@ void drawRoom() {
 
 void drawGameObjects() {
 
-  for (int i = 0; i < myObjects.size(); i ++) {
+  int i = 0;
+  while (i < myObjects.size()) {
     GameObject myObj = myObjects.get(i);
     
     myObj.act();
     myObj.show();
+    
+    if (myObj.lives == 0) {
+      myObjects.remove(i);
+    } else {
+      i ++;
+    }
     
   }  
   
