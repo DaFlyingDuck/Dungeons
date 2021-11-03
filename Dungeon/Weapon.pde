@@ -4,10 +4,10 @@ class Weapon {
   int threshold;
   int bulletSpeed;
   
-  Weapon() {
+  Weapon(int t, int b) {
     shotTimer = 0;
-    threshold = 30;
-    bulletSpeed = 5;
+    threshold = t;
+    bulletSpeed = b;
     
   }
   

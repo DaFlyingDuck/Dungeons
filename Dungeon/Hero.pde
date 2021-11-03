@@ -11,8 +11,11 @@ class Hero extends GameObject {
     size = 30;
     roomX = 1;
     roomY = 1;
-    myWeapon = new Weapon();
     
+    Weapon[] myGuns = new Weapon[9];
+    myGuns[1] = new SniperRifle();
+    myGuns[2] = new AutoPistol();
+    myGuns[3] = new icecream();
     
     
   }
@@ -21,8 +24,13 @@ class Hero extends GameObject {
     
     super.act();
     
-    myWeapon.update();
-    if (spacekey) myWeapon.shoot();
+    int i = 0;
+    while (i < 10) {
+      myGuns[i].update();
+      i = i + 1;
+    }
+    
+    if (spacekey) myGuns[1].shoot();
     
     //Movement Code
     if(wkey) vel.y = -2;
