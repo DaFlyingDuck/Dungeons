@@ -4,6 +4,8 @@ class Bullet extends GameObject {
   
   
   Bullet(float speedx, float speedy, color c, int s) {
+    roomX = myHero.roomX;
+    roomY = myHero.roomY;
     lives = 1;
     loc = new PVector(myHero.loc.x, myHero.loc.y);
     vel = new PVector(speedx, speedy);

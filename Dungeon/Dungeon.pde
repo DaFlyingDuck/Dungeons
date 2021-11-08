@@ -10,6 +10,7 @@ boolean mouseReleased;
 boolean wasPressed;
 
 boolean wkey, skey, akey, dkey, spacekey, shiftkey;
+boolean key1, key2, key3, key4, key5, key6, key7, key8, key9;
 
 // Colours
 color mentalAsylum1 = #443939;
@@ -52,6 +53,7 @@ void setup() {
   myObjects = new ArrayList<GameObject>();
   myHero = new Hero();
   myObjects.add(myHero);
+  myObjects.add(new Enemy());
   
   //Create Darkness
   darkness = new ArrayList<DarknessCell>(10000);
