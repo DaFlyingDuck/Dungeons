@@ -1,6 +1,7 @@
 class Bullet extends GameObject {
   
   color colour;
+
   
   
   Bullet(float speedx, float speedy, color c, int s) {
@@ -11,6 +12,7 @@ class Bullet extends GameObject {
     vel = new PVector(speedx, speedy);
     size = s;
     colour = c;
+    dmg = int(sqrt(speedx * speedx + speedy * speedy))/2;
     
     
   }

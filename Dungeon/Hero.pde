@@ -24,7 +24,7 @@ class Hero extends GameObject {
     myGuns[7] = new icecream();
     myGuns[8] = new icecream();
     myGuns[9] = new icecream();
-    currentGun = 9;
+    currentGun = 1;
     
     
   }

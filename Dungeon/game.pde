@@ -62,7 +62,7 @@ void drawGameObjects() {
       myObj.show();
     }
     
-    if (myObj.lives == 0) {
+    if (myObj.lives <= 0) {
       myObjects.remove(i);
     } else {
       i ++;
@@ -101,6 +101,6 @@ void drawMiniMap() {
   }
   
   fill(#D30DC0);
-  square(30 + 7 * myHero.roomX, 30 + 7 * myHero.roomY, 8);
+  square(30 + 8 * myHero.roomX, 30 + 8 * myHero.roomY, 9);
   
 }

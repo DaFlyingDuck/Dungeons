@@ -13,7 +13,7 @@ class DarknessCell {
   }
   
   void act() {
-    
+
     
   }
   
