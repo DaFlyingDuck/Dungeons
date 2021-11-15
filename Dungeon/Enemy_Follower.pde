@@ -18,18 +18,15 @@ class Follower extends Enemy {
     
     super.act();
     
-    vel = new PVector(myHero.loc.x - loc.x, myHero.loc.y - loc.y);
-    vel.setMag(1);
+    if (myHero.lives > 0) {
+      vel = new PVector(myHero.loc.x - loc.x, myHero.loc.y - loc.y);
+      vel.setMag(1.5);
+    } else {
+      vel = new PVector(0,0);
+    }
     
     
   }
-  
-  
-  
-  
-  
-  
-  
   
   
 }

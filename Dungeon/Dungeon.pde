@@ -56,6 +56,7 @@ void setup() {
   myObjects.add(new Enemy());
   myObjects.add(new Follower(1, 2));
   myObjects.add(new Follower(2, 1));
+  myObjects.add(new Turret(3,1));
   
   //Create Darkness
   darkness = new ArrayList<DarknessCell>(10000);

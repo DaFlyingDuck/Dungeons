@@ -4,10 +4,12 @@ class Hero extends GameObject {
   Weapon myWeapon;
   int currentGun;
   Weapon[] myGuns;
+  int immune;
   
   Hero() {
     
     lives = 3;
+    immune = 90;
     loc = new PVector(width/2, height/2);
     vel = new PVector(0, 0);
     size = 30;
@@ -17,14 +19,14 @@ class Hero extends GameObject {
    myGuns = new Weapon[10];
     myGuns[1] = new SniperRifle();
     myGuns[2] = new AutoPistol();
-    myGuns[3] = new icecream();
+    myGuns[3] = new shotgun();
     myGuns[4] = new icecream();
     myGuns[5] = new icecream();
     myGuns[6] = new icecream();
     myGuns[7] = new icecream();
     myGuns[8] = new icecream();
     myGuns[9] = new icecream();
-    currentGun = 1;
+    currentGun = 3;
     
     
   }
@@ -48,7 +50,7 @@ class Hero extends GameObject {
     
     // Update and Shoot Gun
     myGuns[currentGun].update();
-    if (spacekey) myGuns[currentGun].shoot();
+    if (mousePressed) myGuns[currentGun].shoot();
     
     //Movement Code
     if(wkey) vel.y = -2;
@@ -65,6 +67,13 @@ class Hero extends GameObject {
     if(loc.x > width/2 + 3 * width/8 - size/2) loc.x = width/2 + 3 * width/8 - size/2;
     if(loc.y < height/2 - 3 * height/8 + size/2)loc.y = height/2 - 3 * height/8 + size/2;
     if(loc.y > height/2 + 3 * height/8 - size/2)loc.y = height/2 + 3 * height/8 - size/2;
+    
+    // Collision with Enemies
+    immune --;
+    if (lives <= 0) {
+      for (int j = 0; j < 100; j ++) myObjects.add(new Particles(loc.x, loc.y, 2)); 
+    }
+      
     
     // Collision With Doors
     if (nRoom == black && loc.y == height/2 - 3 * height/8 + size/2 && loc.x > width/2 - 50 && loc.x < width/2 + 50) {
@@ -127,7 +136,7 @@ class Hero extends GameObject {
       }
       
     }
-    
+      
     
   }
   

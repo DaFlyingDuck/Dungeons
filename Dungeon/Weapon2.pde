@@ -21,3 +21,22 @@ class icecream extends Weapon {
   }
 
 }
+
+class shotgun extends Weapon { 
+  
+  shotgun() {
+    super(100, 6);
+  }
+  
+  void shoot() {
+    if (shotTimer >= threshold) {
+      PVector aimVector = new PVector(mouseX - myHero.loc.x, mouseY - myHero.loc.y);
+      aimVector.setMag(bulletSpeed);
+      for (int i = 0; i < 10; i ++) {
+        myObjects.add(new Bullet(aimVector.x + random(-.35 * bulletSpeed, .35 * bulletSpeed), aimVector.y + random(-.35 * bulletSpeed, .35 * bulletSpeed), #D30D13, 7, 2));
+      }
+      shotTimer = 0;
+    }
+  }
+  
+}

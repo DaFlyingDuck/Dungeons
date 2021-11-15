@@ -3,6 +3,7 @@ void game() {
   drawGameObjects();
   drawLightLayer();
   drawMiniMap();
+  println(myObjects.size());
  
 }
 

@@ -27,17 +27,25 @@ class Enemy extends GameObject {
   void act() {
     super.act();
     
+    // Collision with Bullet
     int i = 0;
     while(i < myObjects.size()) {
       GameObject obj = myObjects.get(i);
       if (obj instanceof Bullet) {
         float d = dist(obj.loc.x, obj.loc.y, loc.x, loc.y);
         if (d <= size/2 + obj.size/2) {
-          lives = lives - obj.dmg;
+          lives = lives - ((Bullet) obj).dmg;
           obj.lives = 0;
         }
       }
       i ++;  
+    }
+    
+    // Collision with Hero
+    float d = dist(loc.x, loc.y, myHero.loc.x, myHero.loc.y);
+    if (d <= size/2 + myHero.size/2 && myHero.immune <= 0) {
+      myHero.lives --;
+      myHero.immune = 60;
     }
     
   }
