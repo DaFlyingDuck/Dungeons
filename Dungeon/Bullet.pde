@@ -43,33 +43,33 @@ class Bullet extends GameObject {
   void wWall() {
     lives = 0;
     if (size < 10) {
-      for (int i = 0; i < 4; i ++) myObjects.add(new Particles(loc.x, loc.y, 1, 1));
+      for (int i = 0; i < 4; i ++) myObjects.add(new Particles(loc.x, loc.y, WWALL, BULLET_EXPLOSION));
     } else {
-      for (int i = 0; i < 10; i ++) myObjects.add(new Particles(loc.x, loc.y, 1, 1));
+      for (int i = 0; i < 10; i ++) myObjects.add(new Particles(loc.x, loc.y, WWALL, BULLET_EXPLOSION));
     }
   }
   void eWall() {
     lives = 0;
     if (size < 10) {
-      for (int i = 0; i < 4; i ++) myObjects.add(new Particles(loc.x, loc.y, 2, 1));
+      for (int i = 0; i < 4; i ++) myObjects.add(new Particles(loc.x, loc.y, EWALL, BULLET_EXPLOSION));
     } else {
-      for (int i = 0; i < 10; i ++) myObjects.add(new Particles(loc.x, loc.y, 2, 1));
+      for (int i = 0; i < 10; i ++) myObjects.add(new Particles(loc.x, loc.y, EWALL, BULLET_EXPLOSION));
     }
   }
   void nWall() {
     lives = 0;
     if (size < 10) {
-      for (int i = 0; i < 4; i ++) myObjects.add(new Particles(loc.x, loc.y, 3, 1));
+      for (int i = 0; i < 4; i ++) myObjects.add(new Particles(loc.x, loc.y, NWALL, BULLET_EXPLOSION));
     } else {
-      for (int i = 0; i < 10; i ++) myObjects.add(new Particles(loc.x, loc.y, 3, 1));
+      for (int i = 0; i < 10; i ++) myObjects.add(new Particles(loc.x, loc.y, NWALL, BULLET_EXPLOSION));
     }    
   }
   void sWall() {
     lives = 0;
     if (size < 10) {
-      for (int i = 0; i < 4; i ++) myObjects.add(new Particles(loc.x, loc.y, 4, 1));
+      for (int i = 0; i < 4; i ++) myObjects.add(new Particles(loc.x, loc.y, SWALL, BULLET_EXPLOSION));
     } else {
-      for (int i = 0; i < 10; i ++) myObjects.add(new Particles(loc.x, loc.y, 4, 1));
+      for (int i = 0; i < 10; i ++) myObjects.add(new Particles(loc.x, loc.y, SWALL, BULLET_EXPLOSION));
     }  
   }
   

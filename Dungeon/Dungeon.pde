@@ -35,6 +35,47 @@ ArrayList<GameObject> myObjects;
 ArrayList<DarknessCell> darkness;
 Hero myHero;
 
+
+
+//Random Variables
+int BULLET_SIZE = 10;
+int SHOTGUN_BULLET_SIZE = 7;
+int SHOTGUN_BULLET_DMG = 2;
+
+int SNIPER_RELOAD = 100;
+int SNIPER_SPEED = 20;
+
+int PISTOL_RELOAD = 12;
+int PISTOL_SPEED = 3;
+
+int ICECREAM_RELOAD = 2;
+int ICECREAM_SPEED = 30;
+
+int SHOTGUN_RELOAD = 100;
+int SHOTGUN_SPEED = 6;
+
+int WWALL = 1;
+int EWALL = 2;
+int NWALL = 3;
+int SWALL = 4;
+
+int BULLET_EXPLOSION = 1;
+int HERO_BLOOD = 2;
+float HERO_BLOOD_SPEED = 3.3;
+
+int HERO_DMG_IMMUNE = 60;
+int HERO_SPWN_IMMUNE = 90;
+float HERO_SPEED = 2;
+
+float TURRET_BULLET_SPEED = 2.5;
+float FOLLOWER_SPEED = 1.5;
+int FOLLOWER_LIVES = 30;
+int FOLLOWER_SIZE = 50;
+
+int TURRET_LIVES = 45;
+int TURRET_SIZE = 60;
+
+
 void setup() {
   
   rectMode(CENTER);

@@ -1,7 +1,7 @@
 class SniperRifle extends Weapon {
   
   SniperRifle() {
-    super(100,20);
+    super(SNIPER_RELOAD,SNIPER_SPEED);
   }
   
 }
@@ -9,7 +9,7 @@ class SniperRifle extends Weapon {
 class AutoPistol extends Weapon {
   
   AutoPistol() {
-    super(12,3);
+    super(PISTOL_RELOAD,PISTOL_SPEED);
   }
   
 }
@@ -17,7 +17,7 @@ class AutoPistol extends Weapon {
 class icecream extends Weapon {
   
   icecream() {
-    super(2,30);
+    super(ICECREAM_RELOAD,ICECREAM_SPEED);
   }
 
 }
@@ -25,7 +25,7 @@ class icecream extends Weapon {
 class shotgun extends Weapon { 
   
   shotgun() {
-    super(100, 6);
+    super(SHOTGUN_RELOAD, SHOTGUN_SPEED);
   }
   
   void shoot() {
@@ -33,7 +33,7 @@ class shotgun extends Weapon {
       PVector aimVector = new PVector(mouseX - myHero.loc.x, mouseY - myHero.loc.y);
       aimVector.setMag(bulletSpeed);
       for (int i = 0; i < 10; i ++) {
-        myObjects.add(new Bullet(aimVector.x + random(-.35 * bulletSpeed, .35 * bulletSpeed), aimVector.y + random(-.35 * bulletSpeed, .35 * bulletSpeed), #D30D13, 7, 2));
+        myObjects.add(new Bullet(aimVector.x + random(-.35 * bulletSpeed, .35 * bulletSpeed), aimVector.y + random(-.35 * bulletSpeed, .35 * bulletSpeed), #D30D13, SHOTGUN_BULLET_SIZE, SHOTGUN_BULLET_DMG));
       }
       shotTimer = 0;
     }

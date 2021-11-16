@@ -45,7 +45,7 @@ class Enemy extends GameObject {
     float d = dist(loc.x, loc.y, myHero.loc.x, myHero.loc.y);
     if (d <= size/2 + myHero.size/2 && myHero.immune <= 0) {
       myHero.lives --;
-      myHero.immune = 60;
+      myHero.immune = HERO_DMG_IMMUNE;
     }
     
   }

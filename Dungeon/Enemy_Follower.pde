@@ -1,7 +1,7 @@
 class Follower extends Enemy {
   
   Follower(int rX, int rY) {
-    super(30, 50, rX, rY);
+    super(FOLLOWER_LIVES, FOLLOWER_SIZE, rX, rY);
     
   }
   
@@ -20,7 +20,7 @@ class Follower extends Enemy {
     
     if (myHero.lives > 0) {
       vel = new PVector(myHero.loc.x - loc.x, myHero.loc.y - loc.y);
-      vel.setMag(1.5);
+      vel.setMag(FOLLOWER_SPEED);
     } else {
       vel = new PVector(0,0);
     }

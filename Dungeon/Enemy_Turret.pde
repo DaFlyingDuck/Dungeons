@@ -1,12 +1,23 @@
 class Turret extends Enemy {
   
+  int shotTimer;
+  int threshold;
+  
   Turret(int rX, int rY) {
-    super(45, 60, rX, rY);
+    super(TURRET_LIVES, TURRET_SIZE, rX, rY);
+    shotTimer = 0;
+    threshold = 60;
      
   }
   
   void act() {
     super.act();
+    
+    shotTimer ++;
+    if (shotTimer > threshold) {
+      myObjects.add(new Enemy_Bullet(loc.x, loc.y, roomX, roomY));
+      shotTimer = 0;
+    }
     
   }
   

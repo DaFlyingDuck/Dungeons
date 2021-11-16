@@ -33,8 +33,8 @@ class Particles extends GameObject {
    size = int(random(3,7));
    loc = new PVector(j, k);
    vel = new PVector(random(-3,3), random(-3,3));
-   if (vel.mag() > 3.3) {
-     vel.setMag(3.3);
+   if (vel.mag() > HERO_BLOOD_SPEED) {
+     vel.setMag(HERO_BLOOD_SPEED);
    }
    
    c = _c;
@@ -52,13 +52,13 @@ class Particles extends GameObject {
  
  void show() {
    
-   if (c == 1) {
+   if (c == BULLET_EXPLOSION) {
      fill(180, 180, 180, t);
      noStroke();
      square(loc.x, loc.y, size);
    }
    
-   if (c == 2) {
+   if (c == HERO_BLOOD) {
      fill(222, 9, 9, t);
      noStroke();
      square(loc.x, loc.y, size);   

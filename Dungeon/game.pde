@@ -93,7 +93,7 @@ void drawMiniMap() {
     color c = map.get(x,y);  
     fill(c, 200);
     noStroke();
-    square(30 + 8 * x, 30 + 8 * y, size);
+    square(30 + size * x, 30 + size * y, size);
     x ++;
     if (x >= map.width) {
       x = 0;
@@ -102,6 +102,6 @@ void drawMiniMap() {
   }
   
   fill(#D30DC0);
-  square(30 + 8 * myHero.roomX, 30 + 8 * myHero.roomY, 9);
+  square(30 + size * myHero.roomX, 30 + size * myHero.roomY, size + 1);
   
 }

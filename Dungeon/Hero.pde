@@ -57,7 +57,7 @@ class Hero extends GameObject {
     if(skey) vel.y = 2;
     if(akey) vel.x = -2;
     if(dkey) vel.x = 2;
-    if(wkey || skey || akey || dkey) vel.setMag(2);
+    if(wkey || skey || akey || dkey) vel.setMag(HERO_SPEED);
     
     if(!wkey && !skey) vel.y = vel.y * 0.85;
     if(!akey && !dkey) vel.x = vel.x * 0.85;
@@ -71,7 +71,7 @@ class Hero extends GameObject {
     // Collision with Enemies
     immune --;
     if (lives <= 0) {
-      for (int j = 0; j < 100; j ++) myObjects.add(new Particles(loc.x, loc.y, 2)); 
+      for (int j = 0; j < 100; j ++) myObjects.add(new Particles(loc.x, loc.y, HERO_BLOOD)); 
     }
       
     
