@@ -3,7 +3,9 @@ void game() {
   drawGameObjects();
   drawLightLayer();
   drawMiniMap();
-  println(myObjects.size());
+  //println(myObjects.size());
+  println(myHero.roomX);
+  print(myHero.roomY);
  
 }
 
@@ -31,16 +33,16 @@ void drawRoom() {
 
   noStroke();
   fill(black);
-  if(nRoom == black) {
+  if(nRoom != white) {
     ellipse(width/2, height * 0.1, 100, 100);
   }
-  if(wRoom == black) {
+  if(wRoom != white) {
     ellipse(width * 0.1, height/2, 100, 100);
   }
-  if(sRoom == black) {
+  if(sRoom != white) {
     ellipse(width/2, height * 0.9, 100, 100);
   }
-  if(eRoom == black) {
+  if(eRoom != white) {
     ellipse(width * 0.9, height/2, 100, 100);
   }
   

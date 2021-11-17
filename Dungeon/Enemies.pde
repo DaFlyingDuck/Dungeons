@@ -1,5 +1,6 @@
 class Enemy extends GameObject {
   
+  
   Enemy() {
   
     loc = new PVector(width/2, height/2);
@@ -7,6 +8,17 @@ class Enemy extends GameObject {
     lives = 20;
     roomX = 1;
     roomY = 1;
+    size = 50;
+    
+  }
+  
+  Enemy(int x, int y) {
+  
+    loc = new PVector(width/2, height/2);
+    vel = new PVector(0, 0);
+    lives = 20;
+    roomX = x;
+    roomY = y;
     size = 50;
     
   }
@@ -52,7 +64,7 @@ class Enemy extends GameObject {
   
   void show() {
     noStroke();
-    fill(0, 255, 0);
+    fill(green);
     circle(loc.x, loc.y, size);
     fill(black);
     textSize(20);

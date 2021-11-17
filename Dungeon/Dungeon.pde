@@ -19,6 +19,11 @@ color mentalAsylum3 = #473B2B;
 color mentalAsylum4 = #5D360A;
 color mentalAsylum5 = #6B5B45;
 color black = #000000;
+color white = #FFFFFF;
+
+color red = #FF0000;
+color green = #00FF00;
+color blue = #0000FF;
 
 // Fonts
 PFont dungeon;
@@ -94,10 +99,6 @@ void setup() {
   myObjects = new ArrayList<GameObject>();
   myHero = new Hero();
   myObjects.add(myHero);
-  myObjects.add(new Enemy());
-  myObjects.add(new Follower(1, 2));
-  myObjects.add(new Follower(2, 1));
-  myObjects.add(new Turret(3,1));
   
   //Create Darkness
   darkness = new ArrayList<DarknessCell>(10000);
@@ -112,9 +113,29 @@ void setup() {
         numRow = 0;
         numCol ++;
       }
-    }
-       
+    }     
+  }
   
+  //Create Rooms and Load Enemies in Map
+  int x = 0;
+  int y = 0;
+
+  while (y < map.height) {
+    color roomC = map.get(x,y);
+    if (roomC == green) {
+      myObjects.add(new Enemy(x, y));
+    }
+    if (roomC == blue) {
+      myObjects.add(new Turret(x,y));  
+    }
+    if (roomC == red) {
+      myObjects.add(new Follower(x,y));
+    }
+    x ++;
+    if (x == map.width) {
+      x = 0;
+      y ++;
+    } 
   }
   
 }

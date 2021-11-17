@@ -76,7 +76,7 @@ class Hero extends GameObject {
       
     
     // Collision With Doors
-    if (nRoom == black && loc.y == height/2 - 3 * height/8 + size/2 && loc.x > width/2 - 50 && loc.x < width/2 + 50) {
+    if (nRoom != white && loc.y == height/2 - 3 * height/8 + size/2 && loc.x > width/2 - 50 && loc.x < width/2 + 50) {
       roomY --;
       loc = new PVector(width/2, height/2 + 3 * height/8 - size/2 - 10);
       println(roomX, roomY);
@@ -91,7 +91,7 @@ class Hero extends GameObject {
       }
       
     }
-    if(wRoom == black && loc.x == width/2 - 3 * width/8 + size/2 && loc.y > height/2 - 50 && loc.y < height/2 + 50) {
+    if(wRoom != white && loc.x == width/2 - 3 * width/8 + size/2 && loc.y > height/2 - 50 && loc.y < height/2 + 50) {
       roomX --;
       loc = new PVector(width/2 + 3 * width/8 - size/2 - 10, height/2);
       println(roomX, roomY);
@@ -106,7 +106,7 @@ class Hero extends GameObject {
       }
       
     }
-    if(sRoom == black && loc.y == height/2 + 3 * height/8 - size/2 && loc.x > width/2 - 50 && loc.x < width/2 + 50) {
+    if(sRoom != white && loc.y == height/2 + 3 * height/8 - size/2 && loc.x > width/2 - 50 && loc.x < width/2 + 50) {
       roomY ++;
       loc = new PVector(width/2, height/2 - 3 * height/8 + size/2 + 10);
       println(roomX, roomY);
@@ -121,7 +121,7 @@ class Hero extends GameObject {
       }
       
     }
-    if(eRoom == black && loc.x == width/2 + 3 * width/8 - size/2 && loc.y > height/2 - 50 && loc.y < height/2 + 50) {
+    if(eRoom != white && loc.x == width/2 + 3 * width/8 - size/2 && loc.y > height/2 - 50 && loc.y < height/2 + 50) {
       roomX ++;
       loc = new PVector(width/2 - 3 * width/8 + size/2 + 10, height/2);
       println(roomX, roomY);

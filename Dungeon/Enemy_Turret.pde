@@ -23,7 +23,7 @@ class Turret extends Enemy {
   
   void show() {
     noStroke();
-    fill(0, 0, 255);
+    fill(blue);
     circle(loc.x, loc.y, size);
     fill(black);
     textSize(20);

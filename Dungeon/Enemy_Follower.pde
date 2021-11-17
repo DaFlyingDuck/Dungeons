@@ -7,7 +7,7 @@ class Follower extends Enemy {
   
   void show() {
     noStroke();
-    fill(255, 0, 0);
+    fill(red);
     circle(loc.x, loc.y, size);
     fill(black);
     textSize(20);
