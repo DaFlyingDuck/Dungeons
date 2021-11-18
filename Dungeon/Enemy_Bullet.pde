@@ -19,8 +19,7 @@ class Enemy_Bullet extends Enemy {
     loc.add(vel);
     
     // Collision with Hero
-    float d = dist(loc.x, loc.y, myHero.loc.x, myHero.loc.y);
-    if (d <= size/2 + myHero.size/2 && myHero.immune <= 0) {
+    if (isCollidingWith(myHero) && myHero.immune <= 0) {
       myHero.lives --;
       myHero.immune = HERO_DMG_IMMUNE;
     }
