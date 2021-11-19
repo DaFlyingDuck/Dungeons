@@ -16,7 +16,7 @@ class Hero extends GameObject {
     roomX = 1;
     roomY = 1;
     
-   myGuns = new Weapon[10];
+    myGuns = new Weapon[10];
     myGuns[1] = new SniperRifle();
     myGuns[2] = new AutoPistol();
     myGuns[3] = new shotgun();
@@ -71,7 +71,21 @@ class Hero extends GameObject {
     // Collision with Enemies
     immune --;
     if (lives <= 0) {
-      for (int j = 0; j < 100; j ++) myObjects.add(new Particles(loc.x, loc.y, HERO_BLOOD)); 
+      for (int j = 0; j < 100; j ++) myObjects.add(new Particles(loc.x, loc.y, HERO_BLOOD));
+    }
+    
+    //Collision with Dropped Items
+    int i = 0;
+    while (i < myObjects.size()) {
+      GameObject myObj = myObjects.get(i);
+      if (myObj instanceof DroppedItem && isCollidingWith(myObj)) {
+        DroppedItem item = (DroppedItem) myObj;
+        if (item.type == GUN) {
+          myWeapon = item.w;
+          item.lives = 0;
+        }
+      }
+      i ++;
     }
       
     

@@ -42,10 +42,14 @@ class Enemy extends GameObject {
     // Collision with Bullet
     int i = 0;
     while(i < myObjects.size()) {
-      GameObject obj = myObjects.get(i);
-      if (obj instanceof Bullet && isCollidingWith(obj)) {
-        lives = lives - ((Bullet) obj).dmg;
-        obj.lives = 0;
+      GameObject myObj = myObjects.get(i);
+      if (myObj instanceof Bullet && isCollidingWith(myObj)) {
+        lives = lives - ((Bullet) myObj).dmg;
+        myObj.lives = 0;
+        if (lives <= 0) {
+          myObjects.add(new DroppedItem(loc.x, loc.y, roomX, roomY));
+          //for (int j = 0; j < 100; j ++) myObjects.add(new Particles(loc.x, loc.y, HERO_BLOOD));
+        }
       }
       i ++;  
     }
