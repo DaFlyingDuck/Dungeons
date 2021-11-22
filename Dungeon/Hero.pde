@@ -1,10 +1,12 @@
-class Hero extends GameObject {
+ class Hero extends GameObject {
   
 
   Weapon myWeapon;
   int currentGun;
   Weapon[] myGuns;
   int immune;
+  
+  AnimatedGIF currentAction;
   
   Hero() {
     
@@ -15,6 +17,8 @@ class Hero extends GameObject {
     size = 30;
     roomX = 1;
     roomY = 1;
+    
+    currentAction = manDown;
     
     myGuns = new Weapon[10];
     myGuns[1] = new SniperRifle();
@@ -62,6 +66,14 @@ class Hero extends GameObject {
     if(!wkey && !skey) vel.y = vel.y * 0.85;
     if(!akey && !dkey) vel.x = vel.x * 0.85;
     
+    if (abs(vel.y) > abs(vel.x)) {
+      if (vel.y > 0) currentAction = manDown;
+      else currentAction = manUp;
+    } else {
+      if (vel.x > 0) currentAction = manRight;
+      else currentAction = manLeft;
+    }
+    
     // Border Walls
     if(loc.x < width/2 - 3 * width/8 + size/2) loc.x = width/2 - 3 * width/8 + size/2;
     if(loc.x > width/2 + 3 * width/8 - size/2) loc.x = width/2 + 3 * width/8 - size/2;
@@ -81,7 +93,7 @@ class Hero extends GameObject {
       if (myObj instanceof DroppedItem && isCollidingWith(myObj)) {
         DroppedItem item = (DroppedItem) myObj;
         if (item.type == GUN) {
-          myWeapon = item.w;
+          currentGun = ((DroppedItem) myObj).gunType;
           item.lives = 0;
         }
       }
@@ -159,6 +171,7 @@ class Hero extends GameObject {
     stroke(mentalAsylum5);
     fill(mentalAsylum5);
     circle(loc.x, loc.y, size);
+    currentAction.show(loc.x, loc.y, size, size * 1.5);
    
     
   }

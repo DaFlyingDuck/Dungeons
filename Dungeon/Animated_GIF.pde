@@ -4,6 +4,9 @@ class AnimatedGIF {
   int numFrames;
   int currentFrame;
   
+  int delay;
+  int delayC;
+  
   PVector loc;
   PVector size;
   
@@ -14,6 +17,7 @@ class AnimatedGIF {
     size = new PVector(width, height);
     pics = new PImage[numFrames];
     
+    delay = 3;
     
     int i = 0;
     while (i < numFrames) {
@@ -24,13 +28,14 @@ class AnimatedGIF {
     
   }
   
-  AnimatedGIF(int nf, String pre, String post, float x, float y, float sizex, float sizey) {
+  AnimatedGIF(int nf, int _delay, String pre, String post) {
     
     numFrames = nf;
-    loc = new PVector(x,y);
-    size = new PVector(sizex, sizey);
+    loc = new PVector(width/2,height/2);
+    size = new PVector(width, height);
     pics = new PImage[numFrames];
     
+    delay = _delay;
     
     int i = 0;
     while (i < numFrames) {
@@ -39,7 +44,8 @@ class AnimatedGIF {
     }
     currentFrame = 0;
     
-  }
+  }  
+  
   
   void act() {
     
@@ -47,10 +53,25 @@ class AnimatedGIF {
   
   void show() {
     
-    imageMode(CENTER);
-    if (currentFrame == numFrames) currentFrame = 0;
     image(pics[currentFrame], loc.x, loc.y, size.x, size.y); 
-    currentFrame ++;
+    delayC ++;
+    if (delayC == delay) {
+      currentFrame ++;
+      delayC = 0;
+    }
+    if (currentFrame == numFrames) currentFrame = 0;
+    
+  }
+  
+  void show(float x, float y, float w, float h) {
+    
+    image(pics[currentFrame], x, y, w, h); 
+    delayC ++;
+    if (delayC == delay) {
+      currentFrame ++;
+      delayC = 0;
+    }
+    if (currentFrame == numFrames) currentFrame = 0;  
     
   }
   

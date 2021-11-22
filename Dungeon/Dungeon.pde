@@ -33,6 +33,10 @@ PImage map;
 color nRoom, wRoom, eRoom, sRoom;
 
 AnimatedGIF introGIF;
+AnimatedGIF manUp;
+AnimatedGIF manDown;
+AnimatedGIF manLeft;
+AnimatedGIF manRight;
 
 Button startBut;
 
@@ -97,7 +101,15 @@ void setup() {
 
   dungeon = loadFont("LatinWide-48.vlw");
 
+  // Load GIFs
   introGIF = new AnimatedGIF(3, "frame_", "_delay-0.1s.gif"); 
+  manUp = new AnimatedGIF(4, 10, "man/up/sprite_", ".png");
+  manDown = new AnimatedGIF(4, 10, "man/down/sprite_", ".png");
+  manLeft = new AnimatedGIF(4, 10, "man/left/sprite_", ".png");
+  manRight = new AnimatedGIF(4, 10, "man/right/sprite_", ".png");
+  
+  
+  
   startBut = new Button("START", width/2, height/2, 250, 100, mentalAsylum5, mentalAsylum2, 30);
   
   // Create Objects
