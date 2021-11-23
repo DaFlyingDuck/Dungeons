@@ -20,8 +20,9 @@ class Enemy_Bullet extends Enemy {
     
     // Collision with Hero
     if (isCollidingWith(myHero) && myHero.immune <= 0) {
-      myHero.lives --;
+      myHero.lives = myHero.lives - 10;
       myHero.immune = HERO_DMG_IMMUNE;
+      lives = 0;
     }
     
   }

@@ -5,8 +5,11 @@ class Turret extends Enemy {
   
   Turret(int rX, int rY) {
     super(TURRET_LIVES, TURRET_SIZE, rX, rY);
+    dmg2Hero = 15;
+    
     shotTimer = 0;
     threshold = 60;
+    
      
   }
   

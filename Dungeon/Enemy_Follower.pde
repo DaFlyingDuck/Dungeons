@@ -2,6 +2,7 @@ class Follower extends Enemy {
   
   Follower(int rX, int rY) {
     super(FOLLOWER_LIVES, FOLLOWER_SIZE, rX, rY);
+    dmg2Hero = 25;
     
   }
   

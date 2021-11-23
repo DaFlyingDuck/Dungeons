@@ -10,7 +10,7 @@
   
   Hero() {
     
-    lives = 3;
+    lives = 100;
     immune = 90;
     loc = new PVector(width/2, height/2);
     vel = new PVector(0, 0);
@@ -66,8 +66,11 @@
     if(!wkey && !skey) vel.y = vel.y * 0.85;
     if(!akey && !dkey) vel.x = vel.x * 0.85;
     
-    if (abs(vel.y) > abs(vel.x)) {
-      if (vel.y > 0) currentAction = manDown;
+    if(abs(vel.x) < 0.001) vel.x = 0;
+    if(abs(vel.y) < 0.001) vel.y = 0;
+    
+    if (abs(vel.y) >= abs(vel.x)) {
+      if (vel.y >= 0) currentAction = manDown;
       else currentAction = manUp;
     } else {
       if (vel.x > 0) currentAction = manRight;
@@ -92,8 +95,9 @@
       GameObject myObj = myObjects.get(i);
       if (myObj instanceof DroppedItem && isCollidingWith(myObj)) {
         DroppedItem item = (DroppedItem) myObj;
-        if (item.type == GUN) {
-          currentGun = ((DroppedItem) myObj).gunType;
+        if (item.type == HEALTH) {
+          lives = lives + item.healthType;
+          if (lives > 100) lives = 100;
           item.lives = 0;
         }
       }

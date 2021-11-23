@@ -1,5 +1,6 @@
 class Enemy extends GameObject {
   
+  int dmg2Hero;
   
   Enemy() {
   
@@ -43,12 +44,12 @@ class Enemy extends GameObject {
     int i = 0;
     while(i < myObjects.size()) {
       GameObject myObj = myObjects.get(i);
-      if (myObj instanceof Bullet && isCollidingWith(myObj)) {
+      if (lives > 0 && myObj instanceof Bullet && isCollidingWith(myObj)) {
         lives = lives - ((Bullet) myObj).dmg;
         myObj.lives = 0;
         if (lives <= 0) {
           myObjects.add(new DroppedItem(loc.x, loc.y, roomX, roomY));
-          //for (int j = 0; j < 100; j ++) myObjects.add(new Particles(loc.x, loc.y, HERO_BLOOD));
+          for (int j = 0; j < 50; j ++) myObjects.add(new Particles(loc.x, loc.y, HERO_BLOOD));
         }
       }
       i ++;  
@@ -56,7 +57,7 @@ class Enemy extends GameObject {
     
     // Collision with Hero
     if (isCollidingWith(myHero) && myHero.immune <= 0) {
-      myHero.lives --;
+      myHero.lives = myHero.lives - dmg2Hero;
       myHero.immune = HERO_DMG_IMMUNE;
     }
       
@@ -64,7 +65,7 @@ class Enemy extends GameObject {
   
   void show() {
     noStroke();
-    fill(green);
+    fill(black);
     circle(loc.x, loc.y, size);
     fill(black);
     textSize(20);

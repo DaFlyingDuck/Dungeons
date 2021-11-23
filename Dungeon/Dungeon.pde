@@ -77,17 +77,20 @@ final int HERO_SPWN_IMMUNE = 90;
 final float HERO_SPEED = 2;
 
 final float TURRET_BULLET_SPEED = 2.5;
+final int TURRET_LIVES = 45;
+final int TURRET_SIZE = 60;
 final float FOLLOWER_SPEED = 1.5;
 final int FOLLOWER_LIVES = 30;
 final int FOLLOWER_SIZE = 50;
+final int DUMMY_LIVES = 20;
+final int DUMMY_SIZE = 50;
 
-final int TURRET_LIVES = 45;
-final int TURRET_SIZE = 60;
+
 
 // Types of Dropped Items
 final int AMMO = 0;
 final int HEALTH = 1;
-final int GUN = 2;
+
 
 
 void setup() {
@@ -140,7 +143,7 @@ void setup() {
   while (y < map.height) {
     color roomC = map.get(x,y);
     if (roomC == green) {
-      myObjects.add(new Enemy(x, y));
+      myObjects.add(new Dummy(x, y));
     }
     if (roomC == blue) {
       myObjects.add(new Turret(x,y));  

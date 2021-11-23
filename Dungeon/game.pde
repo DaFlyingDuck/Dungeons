@@ -3,9 +3,7 @@ void game() {
   drawGameObjects();
   drawLightLayer();
   drawMiniMap();
-  //println(myObjects.size());
-  println(myHero.roomX);
-  print(myHero.roomY);
+  println("Hero Health:", myHero.lives);
  
 }
 
@@ -62,6 +60,7 @@ void drawGameObjects() {
     
     if (myObj.lives <= 0) {
       myObjects.remove(i);
+      //println(myObj);
     } else {
       i ++;
     }

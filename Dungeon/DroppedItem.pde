@@ -1,11 +1,11 @@
 class DroppedItem extends GameObject {
   
   int type;
-  int gunType;
+  int healthType;
   
   DroppedItem(float x, float y, int rx, int ry) {
-    type = GUN;
-    gunType = 3;
+    type = HEALTH;
+    healthType = 25;
     lives = 1;
     loc = new PVector(x, y);
     vel = new PVector(0,0);
