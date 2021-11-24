@@ -172,12 +172,26 @@
   
   void show() {
    
+    // Show Hero
     stroke(mentalAsylum5);
     fill(mentalAsylum5);
     circle(loc.x, loc.y, size);
     currentAction.show(loc.x, loc.y, size, size * 1.5);
    
-    
+    // Show Health Bar
+    rectMode(CORNER);
+    noStroke();
+    fill(green);
+    float z = map(lives, 0, 100, 0, 40);
+    rect(loc.x - 20, loc.y - 32, z, 4, 7);
+    rectMode(CENTER);
+    strokeWeight(2);
+    stroke(black);
+    fill(black, 0);
+    rect(loc.x, loc.y - 30, 40, 6, 7);
+
+        
+        
   }
   
 }

@@ -14,7 +14,7 @@ class Turret extends Enemy {
   }
   
   void act() {
-    super.act();
+    super.act(35);
     
     shotTimer ++;
     if (shotTimer > threshold) {

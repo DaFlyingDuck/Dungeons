@@ -37,6 +37,7 @@ AnimatedGIF manUp;
 AnimatedGIF manDown;
 AnimatedGIF manLeft;
 AnimatedGIF manRight;
+AnimatedGIF healthPotion;
 
 Button startBut;
 
@@ -88,7 +89,6 @@ final int DUMMY_SIZE = 50;
 
 
 // Types of Dropped Items
-final int AMMO = 0;
 final int HEALTH = 1;
 
 
@@ -110,6 +110,7 @@ void setup() {
   manDown = new AnimatedGIF(4, 10, "man/down/sprite_", ".png");
   manLeft = new AnimatedGIF(4, 10, "man/left/sprite_", ".png");
   manRight = new AnimatedGIF(4, 10, "man/right/sprite_", ".png");
+  healthPotion = new AnimatedGIF(4, 10, "health/_", ".png");
   
   
   

@@ -17,7 +17,7 @@ class Follower extends Enemy {
   
   void act() {
     
-    super.act();
+    super.act(30);
     
     if (myHero.lives > 0) {
       vel = new PVector(myHero.loc.x - loc.x, myHero.loc.y - loc.y);

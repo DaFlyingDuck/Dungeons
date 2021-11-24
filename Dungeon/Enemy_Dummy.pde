@@ -17,7 +17,7 @@ class Dummy extends Enemy {
   
   void act() {
     
-    super.act();
+    super.act(20);
 
     
   }

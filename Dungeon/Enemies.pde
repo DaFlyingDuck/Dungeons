@@ -37,7 +37,7 @@ class Enemy extends GameObject {
   }
   
   
-  void act() {
+  void act(int hDrop) {
     super.act();
     
     // Collision with Bullet
@@ -48,7 +48,7 @@ class Enemy extends GameObject {
         lives = lives - ((Bullet) myObj).dmg;
         myObj.lives = 0;
         if (lives <= 0) {
-          myObjects.add(new DroppedItem(loc.x, loc.y, roomX, roomY));
+          myObjects.add(new HealthPotion(loc.x, loc.y, roomX, roomY, hDrop));
           for (int j = 0; j < 50; j ++) myObjects.add(new Particles(loc.x, loc.y, HERO_BLOOD));
         }
       }

@@ -108,3 +108,9 @@ void drawMiniMap() {
   square(30 + size * myHero.roomX, 30 + size * myHero.roomY, size + 1);
   
 }
+
+void RemoveParticles() {
+  
+  asdasd
+  
+}

@@ -47,6 +47,7 @@ class Particles extends GameObject {
    loc.add(vel);
    t = t - 4;
    if (t <= 0) lives = 0;
+   
 
  }
  
