@@ -3,17 +3,19 @@ class Weapon {
   int shotTimer;
   int threshold;
   int bulletSpeed;
+  int fireRate;
   
   Weapon(int t, int b) {
     shotTimer = 0;
     threshold = t;
     bulletSpeed = b;
+    fireRate = 1;
     
   }
   
   void update() {
     
-    shotTimer ++; 
+    shotTimer = shotTimer + fireRate; 
    
   }
   

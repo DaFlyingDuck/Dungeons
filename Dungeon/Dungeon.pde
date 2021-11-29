@@ -90,6 +90,8 @@ final int DUMMY_SIZE = 50;
 
 // Types of Dropped Items
 final int HEALTH = 1;
+final int RFIRE = 2;
+final int DBOOST = 3;
 
 
 

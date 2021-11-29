@@ -31,12 +31,26 @@ class HealthPotion extends DroppedItem {
 
 class RapidFire extends DroppedItem {
   
-  RapidFire() {
-    
+  RapidFire(float x, float y, int rx, int ry) {
+    super(x, y, rx, ry);
+    type = RFIRE;
   }
   
   void show() {
+    circle(loc.x, loc.y, size);
+  }
+  
+}
+
+class DmgBoost extends DroppedItem {
     
+  DmgBoost(float x, float y, int rx, int ry) {
+    super(x, y, rx, ry);
+    type = DBOOST;
+  }
+  
+  void show() {
+    //circle(loc.x, loc.y , size):
   }
   
 }

@@ -99,6 +99,10 @@
           lives = lives + item.healthType;
           if (lives > 100) lives = 100;
           item.lives = 0;
+        } else if (item.type == RFIRE) {
+          myGuns[currentGun].fireRate = 2;
+        } else if (item.type == DBOOST) {
+          
         }
       }
       i ++;
