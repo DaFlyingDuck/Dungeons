@@ -3,6 +3,7 @@ void game() {
   drawGameObjects();
   drawLightLayer();
   drawMiniMap();
+  removeParticles();
   println("Hero Health:", myHero.lives);
  
 }
@@ -109,8 +110,18 @@ void drawMiniMap() {
   
 }
 
-void RemoveParticles() {
+void removeParticles() {
   
-  asdasd
+  int i = 0;
+  while (i < myObjects.size()) {
+    GameObject myObj = myObjects.get(i);
+    
+    if (myObj instanceof Particles && (myObj.roomX != myHero.roomX || myObj.roomY != myHero.roomY)) {
+      myObjects.remove(i);
+    } else {
+      i ++;
+    }
+    
+  }
   
 }
