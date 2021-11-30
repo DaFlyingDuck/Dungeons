@@ -4,10 +4,20 @@ void game() {
   drawLightLayer();
   drawMiniMap();
   removeParticles();
+  pausing();
   println("Hero Health:", myHero.lives);
  
 }
 
+void pausing() {
+  
+  pTimer --;
+  if (pkey && pTimer < 0) {
+    mode = pause;
+    pTimer = 10;
+  }
+  
+}
 
 void drawRoom() {
   

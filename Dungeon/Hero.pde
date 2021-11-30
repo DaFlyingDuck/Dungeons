@@ -8,6 +8,9 @@
   
   AnimatedGIF currentAction;
   
+  int sBoostC;
+  float sBoost;
+  
   Hero() {
     
     lives = 100;
@@ -19,6 +22,8 @@
     roomY = 1;
     
     currentAction = manDown;
+    sBoostC = 0;
+    sBoost = 1;
     
     myGuns = new Weapon[10];
     myGuns[1] = new SniperRifle();
@@ -57,11 +62,19 @@
     if (mousePressed) myGuns[currentGun].shoot();
     
     //Movement Code
-    if(wkey) vel.y = -2;
-    if(skey) vel.y = 2;
-    if(akey) vel.x = -2;
-    if(dkey) vel.x = 2;
-    if(wkey || skey || akey || dkey) vel.setMag(HERO_SPEED);
+    sBoostC --;
+    if (sBoostC > 0) {
+      sBoost = 1.7;
+    } else {
+      sBoost = 1;
+    }
+    
+    if(wkey) vel.y = -2 * sBoost;
+    if(skey) vel.y = 2 * sBoost;
+    if(akey) vel.x = -2 * sBoost;
+    if(dkey) vel.x = 2 * sBoost;
+    
+    if((wkey && akey) || (wkey && dkey) || (skey && akey) || (skey && dkey)) vel.setMag(HERO_SPEED * sBoost);
     
     if(!wkey && !skey) vel.y = vel.y * 0.85;
     if(!akey && !dkey) vel.x = vel.x * 0.85;
@@ -100,9 +113,14 @@
           if (lives > 100) lives = 100;
           item.lives = 0;
         } else if (item.type == RFIRE) {
-          myGuns[currentGun].fireRate = 2;
+          myGuns[currentGun].fireRateC = 600;
+          item.lives = 0;
         } else if (item.type == DBOOST) {
-          
+          myGuns[currentGun].dBoostC = 600;
+          item.lives = 0;
+        } else if (item.type == SBOOST) {
+          sBoostC = 600;
+          item.lives = 0;
         }
       }
       i ++;

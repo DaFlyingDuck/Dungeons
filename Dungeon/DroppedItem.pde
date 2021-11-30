@@ -50,7 +50,21 @@ class DmgBoost extends DroppedItem {
   }
   
   void show() {
-    //circle(loc.x, loc.y , size):
+    circle(loc.x, loc.y , size);
   }
+  
+}
+
+class SpdBoost extends DroppedItem {
+  
+  SpdBoost(float x, float y, int rx, int ry) {
+    super(x,y,rx,ry);
+    type = SBOOST;
+  }
+  
+  void show() {
+    circle(loc.x, loc.y, size);  
+  }
+  
   
 }

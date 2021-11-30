@@ -4,6 +4,7 @@ void keyPressed() {
   if (keyCode == 'S') skey = true;
   if (keyCode == 'A') akey = true;
   if (keyCode == 'D') dkey = true;
+  if (keyCode == 'P') pkey = true;
   if (keyCode == ' ') spacekey = true;
   if (keyCode == SHIFT) shiftkey = true;
   
@@ -26,6 +27,7 @@ void keyReleased() {
   if (keyCode == 'S') skey = false;
   if (keyCode == 'A') akey = false;
   if (keyCode == 'D') dkey = false;
+  if (keyCode == 'P') pkey = false;
   if (keyCode == ' ') spacekey = false;
   if (keyCode == SHIFT) shiftkey = false;
   

@@ -9,7 +9,7 @@ final int gameover = 3;
 boolean mouseReleased;
 boolean wasPressed;
 
-boolean wkey, skey, akey, dkey, spacekey, shiftkey;
+boolean wkey, skey, akey, dkey, pkey, spacekey, shiftkey;
 boolean key1, key2, key3, key4, key5, key6, key7, key8, key9;
 
 // Colours
@@ -92,6 +92,9 @@ final int DUMMY_SIZE = 50;
 final int HEALTH = 1;
 final int RFIRE = 2;
 final int DBOOST = 3;
+final int SBOOST = 4;
+
+int pTimer;
 
 
 

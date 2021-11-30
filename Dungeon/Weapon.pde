@@ -3,19 +3,44 @@ class Weapon {
   int shotTimer;
   int threshold;
   int bulletSpeed;
+  
+  //Powerups
   int fireRate;
+  int fireRateC;
+  int dBoost;
+  int dBoostC;
+  
+  
   
   Weapon(int t, int b) {
     shotTimer = 0;
     threshold = t;
     bulletSpeed = b;
+    
     fireRate = 1;
+    fireRateC = 0;
+    dBoost = 1;
+    dBoostC = 0;
     
   }
   
   void update() {
     
-    shotTimer = shotTimer + fireRate; 
+    shotTimer = shotTimer + fireRate;
+    fireRateC --;
+    if (fireRateC > 0) {
+      fireRate = 2;
+    } else {
+      fireRate = 1;
+    }
+    
+    dBoostC --;
+    if (dBoostC > 0) {
+      dBoost = 2;
+    } else {
+      dBoost = 1;
+    }
+    
    
   }
   
@@ -23,7 +48,7 @@ class Weapon {
     if (shotTimer >= threshold) {
       PVector aimVector = new PVector(mouseX - myHero.loc.x, mouseY - myHero.loc.y);
       aimVector.setMag(bulletSpeed);
-      myObjects.add(new Bullet(aimVector.x, aimVector.y, #D30D13, BULLET_SIZE, bulletSpeed/2));
+      myObjects.add(new Bullet(aimVector.x, aimVector.y, #D30D13, BULLET_SIZE, bulletSpeed/2 * dBoost));
       shotTimer = 0;
     }
   }

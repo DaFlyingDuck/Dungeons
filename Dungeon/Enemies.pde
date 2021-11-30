@@ -49,7 +49,9 @@ class Enemy extends GameObject {
         myObj.lives = 0;
         if (lives <= 0) {
           //myObjects.add(new HealthPotion(loc.x, loc.y, roomX, roomY, hDrop));
-          myObjects.add(new RapidFire(loc.x, loc.y, roomX, roomY));
+          //myObjects.add(new RapidFire(loc.x, loc.y, roomX, roomY));
+          //myObjects.add(new DmgBoost(loc.x, loc.y, roomX, roomY));
+          myObjects.add(new SpdBoost(loc.x, loc.y, roomX, roomY));
           for (int j = 0; j < 50; j ++) myObjects.add(new Particles(loc.x, loc.y, HERO_BLOOD));
         }
       }
