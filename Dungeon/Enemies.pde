@@ -44,14 +44,21 @@ class Enemy extends GameObject {
     int i = 0;
     while(i < myObjects.size()) {
       GameObject myObj = myObjects.get(i);
-      if (lives > 0 && myObj instanceof Bullet && isCollidingWith(myObj)) {
+      if (myObj instanceof Bullet && isCollidingWith(myObj)) {
         lives = lives - ((Bullet) myObj).dmg;
         myObj.lives = 0;
         if (lives <= 0) {
-          //myObjects.add(new HealthPotion(loc.x, loc.y, roomX, roomY, hDrop));
-          //myObjects.add(new RapidFire(loc.x, loc.y, roomX, roomY));
-          //myObjects.add(new DmgBoost(loc.x, loc.y, roomX, roomY));
-          myObjects.add(new SpdBoost(loc.x, loc.y, roomX, roomY));
+          //int r = int(random(4));
+          //if (r == 0) {
+          //  myObjects.add(new HealthPotion(loc.x, loc.y, roomX, roomY, hDrop));
+          //} else if (r == 1) {
+          //  myObjects.add(new RapidFire(loc.x, loc.y, roomX, roomY));
+          //} else if (r == 2) {
+          //  myObjects.add(new DmgBoost(loc.x, loc.y, roomX, roomY));
+          //} else if (r == 3) {
+          //  myObjects.add(new SpdBoost(loc.x, loc.y, roomX, roomY));
+          //}
+          myObjects.add(new DmgBoost(loc.x, loc.y, roomX, roomY));
           for (int j = 0; j < 50; j ++) myObjects.add(new Particles(loc.x, loc.y, HERO_BLOOD));
         }
       }

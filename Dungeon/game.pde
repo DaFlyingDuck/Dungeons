@@ -5,7 +5,7 @@ void game() {
   drawMiniMap();
   removeParticles();
   pausing();
-  println("Hero Health:", myHero.lives);
+  //println("Hero Health:", myHero.lives);
  
 }
 

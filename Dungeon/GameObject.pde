@@ -25,11 +25,11 @@ class GameObject {
   boolean isCollidingWith(GameObject myObj) {
   
     float d = dist(myObj.loc.x, myObj.loc.y, loc.x, loc.y);
-    return (inRoomWith(myObj) && d < size/2 + myObj.size/2);
+    return inRoomWith(myObj) && d < size/2 + myObj.size/2 && lives > 0;
   }
   
   boolean inRoomWith(GameObject myObj) {  
-    return (roomX == myObj.roomX && roomY == myObj.roomY);
+    return roomX == myObj.roomX && roomY == myObj.roomY;
   }
   
 }

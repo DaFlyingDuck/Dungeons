@@ -37,7 +37,7 @@ class RapidFire extends DroppedItem {
   }
   
   void show() {
-    circle(loc.x, loc.y, size);
+    image(rapidfire, loc.x, loc.y, size * 3, size * 0.7);
   }
   
 }
@@ -50,7 +50,7 @@ class DmgBoost extends DroppedItem {
   }
   
   void show() {
-    circle(loc.x, loc.y , size);
+    image(damageboost, loc.x, loc.y, size * 3, size * 0.7);
   }
   
 }

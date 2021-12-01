@@ -37,7 +37,11 @@ AnimatedGIF manUp;
 AnimatedGIF manDown;
 AnimatedGIF manLeft;
 AnimatedGIF manRight;
+
+
 AnimatedGIF healthPotion;
+PImage rapidfire;
+PImage damageboost;
 
 Button startBut;
 
@@ -111,11 +115,17 @@ void setup() {
 
   // Load GIFs
   introGIF = new AnimatedGIF(3, "frame_", "_delay-0.1s.gif"); 
+  
+  // Hero GIFS
   manUp = new AnimatedGIF(4, 10, "man/up/sprite_", ".png");
   manDown = new AnimatedGIF(4, 10, "man/down/sprite_", ".png");
   manLeft = new AnimatedGIF(4, 10, "man/left/sprite_", ".png");
   manRight = new AnimatedGIF(4, 10, "man/right/sprite_", ".png");
-  healthPotion = new AnimatedGIF(4, 10, "health/_", ".png");
+  
+  // Dropped Items GIFS
+  healthPotion = new AnimatedGIF(4, 10, "items/health/_", ".png");
+  rapidfire = loadImage("items/RapidFire/RapidFire.png");
+  damageboost = loadImage("items/DamageBoost/DamageBoost.png");
   
   
   
@@ -132,7 +142,7 @@ void setup() {
   int numRow = 0, numCol = 0;
   for (int i = 0; i < 10000; i ++) {
     while (numRow <= width/size && numCol <= height/size) {
-      println(numRow, numCol);
+      //println(numRow, numCol);
       darkness.add(new DarknessCell(numRow * size + size/2, numCol * size + size/2, size));
       numRow ++;
       if (numRow > width/size) {
