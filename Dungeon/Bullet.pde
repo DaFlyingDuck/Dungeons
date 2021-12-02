@@ -1,10 +1,10 @@
 class Bullet extends GameObject {
   
   color colour;
-  int dmg;
+  float dmg;
   
   
-  Bullet(float speedx, float speedy, color c, int s, int _dmg) {
+  Bullet(float speedx, float speedy, color c, int s, float _dmg) {
     roomX = myHero.roomX;
     roomY = myHero.roomY;
     lives = 1;

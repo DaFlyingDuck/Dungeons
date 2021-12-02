@@ -48,7 +48,7 @@ class Weapon {
     if (shotTimer >= threshold) {
       PVector aimVector = new PVector(mouseX - myHero.loc.x, mouseY - myHero.loc.y);
       aimVector.setMag(bulletSpeed);
-      myObjects.add(new Bullet(aimVector.x, aimVector.y, #D30D13, BULLET_SIZE, bulletSpeed/2 * dBoost));
+      myObjects.add(new Bullet(aimVector.x, aimVector.y, #D30D13, BULLET_SIZE, bulletSpeed/2 * myHero.dmg * dBoost));
       shotTimer = 0;
     }
   }

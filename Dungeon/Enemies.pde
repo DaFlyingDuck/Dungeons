@@ -48,17 +48,16 @@ class Enemy extends GameObject {
         lives = lives - ((Bullet) myObj).dmg;
         myObj.lives = 0;
         if (lives <= 0) {
-          //int r = int(random(4));
-          //if (r == 0) {
-          //  myObjects.add(new HealthPotion(loc.x, loc.y, roomX, roomY, hDrop));
-          //} else if (r == 1) {
-          //  myObjects.add(new RapidFire(loc.x, loc.y, roomX, roomY));
-          //} else if (r == 2) {
-          //  myObjects.add(new DmgBoost(loc.x, loc.y, roomX, roomY));
-          //} else if (r == 3) {
-          //  myObjects.add(new SpdBoost(loc.x, loc.y, roomX, roomY));
-          //}
-          myObjects.add(new DmgBoost(loc.x, loc.y, roomX, roomY));
+          int r = int(random(4));
+          if (r == 0) {
+            myObjects.add(new HealthPotion(loc.x, loc.y, roomX, roomY, hDrop));
+          } else if (r == 1) {
+            myObjects.add(new RapidFire(loc.x, loc.y, roomX, roomY));
+          } else if (r == 2) {
+            myObjects.add(new DmgBoost(loc.x, loc.y, roomX, roomY));
+          } else if (r == 3) {
+            myObjects.add(new SpdBoost(loc.x, loc.y, roomX, roomY));
+          }
           for (int j = 0; j < 50; j ++) myObjects.add(new Particles(loc.x, loc.y, HERO_BLOOD));
         }
       }
@@ -74,12 +73,9 @@ class Enemy extends GameObject {
   }
   
   void show() {
-    noStroke();
-    fill(black);
-    circle(loc.x, loc.y, size);
     fill(black);
     textSize(20);
-    text(lives, loc.x, loc.y);
+    text(int(lives), loc.x, loc.y);
   }
   
 }
@@ -96,9 +92,7 @@ class Dummy extends Enemy {
     noStroke();
     fill(green);
     circle(loc.x, loc.y, size);
-    fill(black);
-    textSize(20);
-    text(lives, loc.x, loc.y);
+    super.show();
   }
   
   void act() {
@@ -122,9 +116,7 @@ class Follower extends Enemy {
     noStroke();
     fill(red);
     circle(loc.x, loc.y, size);
-    fill(black);
-    textSize(20);
-    text(lives, loc.x, loc.y);
+    super.show();
   }
   
   void act() {
@@ -175,9 +167,7 @@ class Turret extends Enemy {
     noStroke();
     fill(blue);
     circle(loc.x, loc.y, size);
-    fill(black);
-    textSize(20);
-    text(lives, loc.x, loc.y);
+    super.show();
   }
   
 }

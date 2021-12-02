@@ -1,7 +1,7 @@
 class GameObject {
   
   int roomX, roomY;
-  int lives;
+  float lives;
   PVector loc;
   PVector vel;
   int size;

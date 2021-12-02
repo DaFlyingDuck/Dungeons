@@ -5,6 +5,12 @@ class Hero extends GameObject {
   int currentGun;
   Weapon[] myGuns;
   int immune;
+  
+  float livesMax;
+  float dmg;
+  float dmgMax;
+  float speed;
+  float speedMax;
 
   AnimatedGIF currentAction;
 
@@ -20,6 +26,12 @@ class Hero extends GameObject {
     size = 30;
     roomX = 1;
     roomY = 1;
+    
+    livesMax = HERO_LIVES_MAX;
+    dmg = HERO_DMG_MULTIPLIER;
+    dmgMax = HERO_DMG_MULTIPLIER_MAX;
+    speed = HERO_SPEED;
+    speedMax = HERO_SPEED_MAX;
 
     currentAction = manDown;
     sBoostC = 0;
@@ -68,12 +80,12 @@ class Hero extends GameObject {
       sBoost = 1;
     }
 
-    if (wkey) vel.y = -2 * sBoost;
-    if (skey) vel.y = 2 * sBoost;
-    if (akey) vel.x = -2 * sBoost;
-    if (dkey) vel.x = 2 * sBoost;
+    if (wkey) vel.y = -speed * sBoost;
+    if (skey) vel.y = speed * sBoost;
+    if (akey) vel.x = -speed * sBoost;
+    if (dkey) vel.x = speed * sBoost;
 
-    if ((wkey && akey) || (wkey && dkey) || (skey && akey) || (skey && dkey)) vel.setMag(HERO_SPEED * sBoost);
+    if ((wkey && akey) || (wkey && dkey) || (skey && akey) || (skey && dkey)) vel.setMag(speed * sBoost);
 
     if (!wkey && !skey) vel.y = vel.y * 0.85;
     if (!akey && !dkey) vel.x = vel.x * 0.85;

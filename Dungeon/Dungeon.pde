@@ -18,6 +18,7 @@ color mentalAsylum2 = #302222;
 color mentalAsylum3 = #473B2B;
 color mentalAsylum4 = #5D360A;
 color mentalAsylum5 = #6B5B45;
+color mentalAsylum6 = #7DA027;
 color black = #000000;
 color white = #FFFFFF;
 
@@ -32,19 +33,25 @@ PFont dungeon;
 PImage map;
 color nRoom, wRoom, eRoom, sRoom;
 
+// Sprites
 AnimatedGIF introGIF;
 AnimatedGIF manUp;
 AnimatedGIF manDown;
 AnimatedGIF manLeft;
 AnimatedGIF manRight;
 
-
 AnimatedGIF healthPotion;
 PImage rapidfire;
 PImage damageboost;
 
+// Start Button
 Button startBut;
 
+// XP Shop Buttons
+Button Shop;
+
+
+// Create Objects
 ArrayList<GameObject> myObjects;
 ArrayList<DarknessCell> darkness;
 Hero myHero;
@@ -79,7 +86,13 @@ final float HERO_BLOOD_SPEED = 3.3;
 
 final int HERO_DMG_IMMUNE = 60;
 final int HERO_SPWN_IMMUNE = 90;
+
+// Upgradable Hero Attributes
+final float HERO_LIVES_MAX = 160;
+final float HERO_DMG_MULTIPLIER = 1;
+final float HERO_DMG_MULTIPLIER_MAX = 2;
 final float HERO_SPEED = 2;
+final float HERO_SPEED_MAX = 4;
 
 final float TURRET_BULLET_SPEED = 2.5;
 final int TURRET_LIVES = 45;
