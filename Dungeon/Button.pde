@@ -60,4 +60,37 @@ class Button {
     
   }
   
+  void show(int tSize) {
+
+
+    // Hover Over Highlight
+    if(mouseX > position.x - w/2 && mouseX < position.x + w/2 && mouseY > position.y - h/2 && mouseY < position.y + h/2) {
+      fill(highlight);
+    } else {
+      fill(normal);
+    }
+    
+    rectMode(CENTER);
+    rect(position.x, position.y, w, h, r);
+    
+    
+    //
+    textAlign(CENTER, CENTER);
+    if(mouseX > position.x - w/2 && mouseX < position.x + w/2 && mouseY > position.y - h/2 && mouseY < position.y + h/2) {
+      fill(normal);
+    } else {
+      fill(highlight);
+    }
+    textSize(tSize);
+    text(text, position.x, position.y);
+    
+    // Button Clicked
+    if(mouseReleased && mouseX > position.x - w/2 && mouseX < position.x + w/2 && mouseY > position.y - h/2 && mouseY < position.y + h/2) {
+      clicked = true;
+    } else {
+      clicked = false;
+    }
+    
+  }
+  
 }

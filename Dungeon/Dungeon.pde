@@ -18,9 +18,13 @@ color mentalAsylum2 = #302222;
 color mentalAsylum3 = #473B2B;
 color mentalAsylum4 = #5D360A;
 color mentalAsylum5 = #6B5B45;
-color mentalAsylum6 = #7DA027;
+color mentalAsylum6 = #598901;
+color mentalAsylum7 = #956524;
+color pink = #C45C90;
+color lpink = #F0D8D8;
 color black = #000000;
 color white = #FFFFFF;
+
 
 color red = #FF0000;
 color green = #00FF00;
@@ -48,7 +52,11 @@ PImage damageboost;
 Button startBut;
 
 // XP Shop Buttons
-Button Shop;
+Button shopBut;
+Button backBut;
+Button hUpgBut;
+Button dUpgBut;
+Button sUpgBut;
 
 
 // Create Objects
@@ -143,6 +151,12 @@ void setup() {
   
   
   startBut = new Button("START", width/2, height/2, 250, 100, mentalAsylum5, mentalAsylum2, 30);
+  shopBut = new Button("SHOP", 62, 119, 64, 15, pink, lpink, 5);
+  backBut = new Button("BACK", width/12, width/12, 70, 70, pink, lpink, 35);
+  hUpgBut = new Button("+", width/2 + 100, height/2, 40, 40, mentalAsylum4, mentalAsylum7, 20);
+  dUpgBut = new Button();
+  sUpgBut = new Button();
+  
   
   // Create Objects
   myObjects = new ArrayList<GameObject>();

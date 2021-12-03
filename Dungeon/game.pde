@@ -4,17 +4,17 @@ void game() {
   drawLightLayer();
   drawMiniMap();
   removeParticles();
-  pausing();
+  shop();
   //println("Hero Health:", myHero.lives);
  
 }
 
-void pausing() {
+void shop() {
   
-  pTimer --;
-  if (pkey && pTimer < 0) {
+  shopBut.show();
+  
+  if(mouseReleased && mouseX > shopBut.position.x - shopBut.w/2 && mouseX < shopBut.position.x + shopBut.w/2 && mouseY > shopBut.position.y - shopBut.h/2 && mouseY < shopBut.position.y + shopBut.h/2) {
     mode = pause;
-    pTimer = 10;
   }
   
 }
@@ -117,6 +117,7 @@ void drawMiniMap() {
   
   fill(#D30DC0);
   square(30 + size * myHero.roomX, 30 + size * myHero.roomY, size + 1);
+ 
   
 }
 
