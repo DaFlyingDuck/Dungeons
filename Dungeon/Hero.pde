@@ -6,6 +6,8 @@ class Hero extends GameObject {
   Weapon[] myGuns;
   int immune;
   
+  int xp;
+  float livesTop;
   float livesMax;
   float dmg;
   float dmgMax;
@@ -27,6 +29,7 @@ class Hero extends GameObject {
     roomX = 1;
     roomY = 1;
     
+    livesTop = HERO_LIVES_TOP;
     livesMax = HERO_LIVES_MAX;
     dmg = HERO_DMG_MULTIPLIER;
     dmgMax = HERO_DMG_MULTIPLIER_MAX;
@@ -121,7 +124,7 @@ class Hero extends GameObject {
         DroppedItem item = (DroppedItem) myObj;
         if (item.type == HEALTH) {
           lives = lives + item.healthType;
-          if (lives > 100) lives = 100;
+          if (lives > livesTop) lives = livesTop;
           item.lives = 0;
         } else if (item.type == RFIRE) {
           myGuns[currentGun].fireRateC = 600;
@@ -206,7 +209,7 @@ class Hero extends GameObject {
     rectMode(CORNER);
     noStroke();
     fill(green);
-    float z = map(lives, 0, 100, 0, 40);
+    float z = map(lives, 0, livesTop, 0, 40);
     rect(loc.x - 20, loc.y - 32, z, 4, 7);
     rectMode(CENTER);
     strokeWeight(2);

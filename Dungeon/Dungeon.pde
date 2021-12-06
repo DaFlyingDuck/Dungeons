@@ -25,7 +25,8 @@ color lpink = #F0D8D8;
 color black = #000000;
 color white = #FFFFFF;
 
-
+color lgrey = #898787;
+color dgrey = #585858;
 color red = #FF0000;
 color green = #00FF00;
 color blue = #0000FF;
@@ -96,7 +97,8 @@ final int HERO_DMG_IMMUNE = 60;
 final int HERO_SPWN_IMMUNE = 90;
 
 // Upgradable Hero Attributes
-final float HERO_LIVES_MAX = 160;
+final float HERO_LIVES_TOP = 100;
+final float HERO_LIVES_MAX = 200;
 final float HERO_DMG_MULTIPLIER = 1;
 final float HERO_DMG_MULTIPLIER_MAX = 2;
 final float HERO_SPEED = 2;
@@ -105,11 +107,15 @@ final float HERO_SPEED_MAX = 4;
 final float TURRET_BULLET_SPEED = 2.5;
 final int TURRET_LIVES = 45;
 final int TURRET_SIZE = 60;
+final int TURRET_XP = 3;
 final float FOLLOWER_SPEED = 1.5;
 final int FOLLOWER_LIVES = 30;
 final int FOLLOWER_SIZE = 50;
+final int FOLLOWER_XP = 2;
 final int DUMMY_LIVES = 20;
 final int DUMMY_SIZE = 50;
+final int DUMMY_XP = 1;
+
 
 
 
@@ -153,9 +159,9 @@ void setup() {
   startBut = new Button("START", width/2, height/2, 250, 100, mentalAsylum5, mentalAsylum2, 30);
   shopBut = new Button("SHOP", 62, 119, 64, 15, pink, lpink, 5);
   backBut = new Button("BACK", width/12, width/12, 70, 70, pink, lpink, 35);
-  hUpgBut = new Button("+", width/2 + 100, height/2, 40, 40, mentalAsylum4, mentalAsylum7, 20);
-  dUpgBut = new Button();
-  sUpgBut = new Button();
+  hUpgBut = new Button("+", width/2 + 150, height/2, 40, 40, mentalAsylum4, mentalAsylum7, 20);
+  dUpgBut = new Button("+", width/2 + 150, height/2 + 80, 40, 40, mentalAsylum4, mentalAsylum7, 20);
+  sUpgBut = new Button("+", width/2 + 150, height/2 + 160, 40, 40, mentalAsylum4, mentalAsylum7, 20);
   
   
   // Create Objects

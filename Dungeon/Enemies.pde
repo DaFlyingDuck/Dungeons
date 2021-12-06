@@ -1,6 +1,7 @@
 class Enemy extends GameObject {
   
   int dmg2Hero;
+  int xp;
   
   Enemy() {
   
@@ -24,13 +25,14 @@ class Enemy extends GameObject {
     
   }
   
-  Enemy(int _lives, int s, int x, int y) {
+  Enemy(int _lives, int s, int x, int y, int _xp) {
     loc = new PVector(random(width/8, 7 * width/8), random(height/8, 7 * height/8));
     vel = new PVector(0, 0);
     lives = _lives;
     size = s;
     roomX = x;
     roomY = y;
+    xp = _xp;
     
     
     
@@ -58,7 +60,10 @@ class Enemy extends GameObject {
           } else if (r == 3) {
             myObjects.add(new SpdBoost(loc.x, loc.y, roomX, roomY));
           }
+          
           for (int j = 0; j < 50; j ++) myObjects.add(new Particles(loc.x, loc.y, HERO_BLOOD));
+          
+          myHero.xp += xp;
         }
       }
       i ++;  
@@ -83,7 +88,7 @@ class Enemy extends GameObject {
 class Dummy extends Enemy {
   
   Dummy(int rX, int rY) {
-    super(DUMMY_LIVES, DUMMY_SIZE, rX, rY);
+    super(DUMMY_LIVES, DUMMY_SIZE, rX, rY, DUMMY_XP);
     dmg2Hero = 20;
     
   }
@@ -107,7 +112,7 @@ class Dummy extends Enemy {
 class Follower extends Enemy {
   
   Follower(int rX, int rY) {
-    super(FOLLOWER_LIVES, FOLLOWER_SIZE, rX, rY);
+    super(FOLLOWER_LIVES, FOLLOWER_SIZE, rX, rY, FOLLOWER_XP);
     dmg2Hero = 25;
     
   }
@@ -143,7 +148,7 @@ class Turret extends Enemy {
   int threshold;
   
   Turret(int rX, int rY) {
-    super(TURRET_LIVES, TURRET_SIZE, rX, rY);
+    super(TURRET_LIVES, TURRET_SIZE, rX, rY, TURRET_XP);
     dmg2Hero = 15;
     
     shotTimer = 0;
