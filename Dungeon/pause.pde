@@ -22,21 +22,26 @@ void pause() {
     mode = game;
   }
   
+  make it so it only lets you buy if you have enough xp and make it so that it takes away xp
+  
   // Hero Health Upgrade
   stroke(mentalAsylum4);
   fill(mentalAsylum7);
   textSize(30);
   text("Hero Health:", width/4 + 60, height/2);
-  if (myHero.livesTop == myHero.livesMax) {
+  if (myHero.livesTop == myHero.livesMax || myHero.xp < hUpgCost) {
     hUpgBut.normal = lgrey;
     hUpgBut.highlight = dgrey;
     stroke(hUpgBut.highlight);
   }
   hUpgBut.show(50);
-  if(mouseReleased && mouseX > hUpgBut.position.x - hUpgBut.w/2 && mouseX < hUpgBut.position.x + hUpgBut.w/2 && mouseY > hUpgBut.position.y - hUpgBut.h/2 && mouseY < hUpgBut.position.y + hUpgBut.h/2) {
+  if(mouseReleased && myHero.xp >= hUpgCost && mouseX > hUpgBut.position.x - hUpgBut.w/2 && mouseX < hUpgBut.position.x + hUpgBut.w/2 && mouseY > hUpgBut.position.y - hUpgBut.h/2 && mouseY < hUpgBut.position.y + hUpgBut.h/2) {
     myHero.livesTop = myHero.livesTop + 20;
     if (myHero.livesTop > myHero.livesMax) {
       myHero.livesTop = myHero.livesMax;
+    } else {
+      subtract upgcost and increase it and incerase upgnum
+      hUpgNum ++;
     }
   }
   
@@ -55,6 +60,8 @@ void pause() {
     myHero.dmg = myHero.dmg + 0.2;
     if (myHero.dmg > myHero.dmgMax) {
       myHero.dmg = myHero.dmgMax;
+    } else {
+      dUpgNum ++;
     }
   }
   
@@ -73,6 +80,8 @@ void pause() {
     myHero.speed= myHero.speed + 0.4;
     if (myHero.speed > myHero.speedMax) {
       myHero.speed = myHero.speedMax;
+    } else {
+      sUpgNum ++;
     }
   }
   

@@ -59,6 +59,15 @@ Button hUpgBut;
 Button dUpgBut;
 Button sUpgBut;
 
+//XP Shop 
+int hUpgNum;
+int dUpgNum;
+int sUpgNum;
+
+int hUpgCost;
+int dUpgCost;
+int sUpgCost;
+
 
 // Create Objects
 ArrayList<GameObject> myObjects;
@@ -115,8 +124,6 @@ final int FOLLOWER_XP = 2;
 final int DUMMY_LIVES = 20;
 final int DUMMY_SIZE = 50;
 final int DUMMY_XP = 1;
-
-
 
 
 // Types of Dropped Items
