@@ -64,6 +64,7 @@ class Enemy extends GameObject {
           for (int j = 0; j < 50; j ++) myObjects.add(new Particles(loc.x, loc.y, HERO_BLOOD));
           
           myHero.xp += xp;
+          myObjects.add(new Message(loc, "+" + xp, roomX, roomY));
         }
       }
       i ++;  

@@ -56,7 +56,7 @@ class Hero extends GameObject {
   void act() {
 
     super.act();
-
+    
     // Change Guns
     if (key1) changeGun(1);
     if (key2) changeGun(2);

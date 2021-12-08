@@ -22,11 +22,11 @@ void intro() {
 }
 
 void resetShop() {
-  hUpgNum = 0;
-  dUpgNum = 0;
-  sUpgNum = 0;
-  hUpgCost = 2;
-  dUpgCost = 2;
-  sUpgCost = 2;
+  hUpgNum = 1;
+  dUpgNum = 1;
+  sUpgNum = 1;
+  hUpgCost = lv2Upg;
+  dUpgCost = lv2Upg;
+  sUpgCost = lv2Upg;
   
 }

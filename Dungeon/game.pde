@@ -6,8 +6,9 @@ void game() {
   removeParticles();
   shop();
   //println("Hero Health:", myHero.lives);
-  println(myHero.xp);
- 
+  //println(myHero.xp);
+  //println(myObjects.size()); 
+  println(dUpgCost);
 }
 
 void shop() {

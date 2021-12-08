@@ -68,6 +68,13 @@ int hUpgCost;
 int dUpgCost;
 int sUpgCost;
 
+final int lv2Upg = 1;
+final int lv3Upg = 2;
+final int lv4Upg = 5;
+final int lv5Upg = 8;
+final int lv6Upg = 12;
+
+
 
 // Create Objects
 ArrayList<GameObject> myObjects;
@@ -113,6 +120,8 @@ final float HERO_DMG_MULTIPLIER_MAX = 2;
 final float HERO_SPEED = 2;
 final float HERO_SPEED_MAX = 4;
 
+
+// Enemy Attributes
 final float TURRET_BULLET_SPEED = 2.5;
 final int TURRET_LIVES = 45;
 final int TURRET_SIZE = 60;
@@ -123,7 +132,7 @@ final int FOLLOWER_SIZE = 50;
 final int FOLLOWER_XP = 2;
 final int DUMMY_LIVES = 20;
 final int DUMMY_SIZE = 50;
-final int DUMMY_XP = 1;
+final int DUMMY_XP = 100;
 
 
 // Types of Dropped Items
