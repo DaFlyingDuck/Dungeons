@@ -8,7 +8,7 @@ void game() {
   //println("Hero Health:", myHero.lives);
   //println(myHero.xp);
   //println(myObjects.size()); 
-  println(dUpgCost);
+  println(hUpgCost);
 }
 
 void shop() {

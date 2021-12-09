@@ -5,7 +5,7 @@ class Hero extends GameObject {
   int currentGun;
   Weapon[] myGuns;
   int immune;
-  
+
   int xp;
   float livesTop;
   float livesMax;
@@ -28,7 +28,7 @@ class Hero extends GameObject {
     size = 30;
     roomX = 1;
     roomY = 1;
-    
+
     livesTop = HERO_LIVES_TOP;
     livesMax = HERO_LIVES_MAX;
     dmg = HERO_DMG_MULTIPLIER;
@@ -56,7 +56,7 @@ class Hero extends GameObject {
   void act() {
 
     super.act();
-    
+
     // Change Guns
     if (key1) changeGun(1);
     if (key2) changeGun(2);
@@ -146,54 +146,30 @@ class Hero extends GameObject {
     if (nRoom != white && loc.y == height/2 - 3 * height/8 + size/2 && loc.x > width/2 - 50 && loc.x < width/2 + 50) {
       roomY --;
       loc = new PVector(width/2, height/2 + 3 * height/8 - size/2 - 10);
-
-      int r = 0;
-      while (r < myObjects.size()) {
-        GameObject myObj = myObjects.get(r);
-        if (myObj instanceof Bullet) {
-          myObj.lives = 0;
-        }
-        r ++;
-      }
+      
+      cleanUp();
+      
     }
     if (wRoom != white && loc.x == width/2 - 3 * width/8 + size/2 && loc.y > height/2 - 50 && loc.y < height/2 + 50) {
       roomX --;
       loc = new PVector(width/2 + 3 * width/8 - size/2 - 10, height/2);
 
-      int r = 0;
-      while (r < myObjects.size()) {
-        GameObject myObj = myObjects.get(r);
-        if (myObj instanceof Bullet) {
-          myObj.lives = 0;
-        }
-        r ++;
-      }
+      cleanUp();
+      
     }
     if (sRoom != white && loc.y == height/2 + 3 * height/8 - size/2 && loc.x > width/2 - 50 && loc.x < width/2 + 50) {
       roomY ++;
       loc = new PVector(width/2, height/2 - 3 * height/8 + size/2 + 10);
 
-      int r = 0;
-      while (r < myObjects.size()) {
-        GameObject myObj = myObjects.get(r);
-        if (myObj instanceof Bullet) {
-          myObj.lives = 0;
-        }
-        r ++;
-      }
+      cleanUp();
+      
     }
     if (eRoom != white && loc.x == width/2 + 3 * width/8 - size/2 && loc.y > height/2 - 50 && loc.y < height/2 + 50) {
       roomX ++;
       loc = new PVector(width/2 - 3 * width/8 + size/2 + 10, height/2);
 
-      int r = 0;
-      while (r < myObjects.size()) {
-        GameObject myObj = myObjects.get(r);
-        if (myObj instanceof Bullet) {
-          myObj.lives = 0;
-        }
-        r ++;
-      }
+      cleanUp();
+      
     }
   }
 
@@ -223,4 +199,17 @@ class Hero extends GameObject {
     myGuns[g].dBoostC = myGuns[currentGun].dBoostC;
     currentGun = g;
   }
+
+  void cleanUp() {
+    int r = 0;
+    while (r < myObjects.size()) {
+      GameObject myObj = myObjects.get(r);
+      if (myObj instanceof Bullet || myObj instanceof Message) {
+        myObj.lives = 0;
+      }
+      r ++;
+    }
+  }
+  
+  
 }
