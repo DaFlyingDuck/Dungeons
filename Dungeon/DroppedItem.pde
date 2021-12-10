@@ -63,7 +63,7 @@ class SpdBoost extends DroppedItem {
   }
   
   void show() {
-    circle(loc.x, loc.y, size);  
+    image(speedboost, loc.x, loc.y, size * 1.4, size * 1.4);  
   }
   
   

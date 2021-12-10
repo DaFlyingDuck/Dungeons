@@ -26,7 +26,7 @@ class Enemy extends GameObject {
   }
   
   Enemy(int _lives, int s, int x, int y, int _xp) {
-    loc = new PVector(random(width/8, 7 * width/8), random(height/8, 7 * height/8));
+    loc = new PVector(random(width/6, 5 * width/6), random(height/6, 5 * height/6));
     vel = new PVector(0, 0);
     lives = _lives;
     size = s;
@@ -49,8 +49,8 @@ class Enemy extends GameObject {
       if (myObj instanceof Bullet && isCollidingWith(myObj)) {
         lives = lives - ((Bullet) myObj).dmg;
         myObj.lives = 0;
-        if (lives <= 0) {
-          int r = int(random(4));
+        if (lives <= 0) { recode this as dropitem() function so i can make minions that dont drop items
+          int r = int(random(5));
           if (r == 0) {
             myObjects.add(new HealthPotion(loc.x, loc.y, roomX, roomY, hDrop));
           } else if (r == 1) {
@@ -59,8 +59,9 @@ class Enemy extends GameObject {
             myObjects.add(new DmgBoost(loc.x, loc.y, roomX, roomY));
           } else if (r == 3) {
             myObjects.add(new SpdBoost(loc.x, loc.y, roomX, roomY));
+          } else if (r == 4) {
+            myObjects.add(new HealthPotion(loc.x, loc.y, roomX, roomY, hDrop));
           }
-          
           for (int j = 0; j < 50; j ++) myObjects.add(new Particles(loc.x, loc.y, HERO_BLOOD));
           
           myHero.xp += xp;
@@ -176,4 +177,51 @@ class Turret extends Enemy {
     super.show();
   }
   
+}
+
+class Spawner extends Enemy {
+  
+  int spwnTimer;
+  int threshold;
+  
+  Spawner(int rX, int rY) {
+    super(SPAWNER_LIVES, SPAWNER_SIZE, rX, rY, SPAWNER_XP);
+    
+    spwnTimer = 0;
+    threshold = 180;
+    dmg2Hero = 20;
+  }
+  
+  void act() {
+    super.act(40);
+    
+    spwnTimer ++;
+    if (spwnTimer > threshold) {
+      //new spawned
+      spwnTimer = 0;
+    }
+  }
+  
+  void show() {
+    noStroke();
+    fill(pink);
+    circle(loc.x, loc.y, size);
+    super.show();
+  }
+}
+
+class Minions extends Enemy {
+  
+  
+  Minions(int rX, int rY) {
+    
+  }
+  
+  void act() {
+    
+  }
+  
+  void show() {
+    
+  }
 }

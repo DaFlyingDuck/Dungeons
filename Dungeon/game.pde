@@ -117,8 +117,8 @@ void drawMiniMap() {
     }
   }
   
-  fill(#D30DC0);
-  square(30 + size * myHero.roomX, 30 + size * myHero.roomY, size + 1);
+  fill(golden);
+  square(30 + size * myHero.roomX, 30 + size * myHero.roomY, size + 2);
  
   
 }

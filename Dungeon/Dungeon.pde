@@ -20,7 +20,7 @@ color mentalAsylum4 = #5D360A;
 color mentalAsylum5 = #6B5B45;
 color mentalAsylum6 = #598901;
 color mentalAsylum7 = #956524;
-color pink = #C45C90;
+color dpink = #C45C90;
 color lpink = #F0D8D8;
 color black = #000000;
 color white = #FFFFFF;
@@ -30,6 +30,8 @@ color dgrey = #585858;
 color red = #FF0000;
 color green = #00FF00;
 color blue = #0000FF;
+color pink = #FF00FF;
+color golden = #FFDC00;
 
 // Fonts
 PFont dungeon;
@@ -48,6 +50,7 @@ AnimatedGIF manRight;
 AnimatedGIF healthPotion;
 PImage rapidfire;
 PImage damageboost;
+PImage speedboost;
 
 // Start Button
 Button startBut;
@@ -122,6 +125,9 @@ final float HERO_SPEED_MAX = 4;
 
 
 // Enemy Attributes
+final int SPAWNER_LIVES = 50;
+final int SPAWNER_SIZE = 60;
+final int SPAWNER_XP = 3;
 final float TURRET_BULLET_SPEED = 2.5;
 final int TURRET_LIVES = 45;
 final int TURRET_SIZE = 60;
@@ -169,11 +175,12 @@ void setup() {
   healthPotion = new AnimatedGIF(4, 10, "items/health/_", ".png");
   rapidfire = loadImage("items/RapidFire/RapidFire.png");
   damageboost = loadImage("items/DamageBoost/DamageBoost.png");
+  speedboost = loadImage("items/SpeedBoost/SpeedBoost.png");
   
   
   
   startBut = new Button("START", width/2, height/2, 250, 100, mentalAsylum5, mentalAsylum2, 30);
-  shopBut = new Button("SHOP", 62, 119, 64, 15, pink, lpink, 5);
+  shopBut = new Button("SHOP", 62, 119, 64, 15, dpink, lpink, 5);
   backBut = new Button("BACK", width/12, width/12, 70, 70, pink, lpink, 35);
   hUpgBut = new Button("+", width/2 + 150, height/2, 40, 40, mentalAsylum4, mentalAsylum7, 20);
   dUpgBut = new Button("+", width/2 + 150, height/2 + 80, 40, 40, mentalAsylum4, mentalAsylum7, 20);
@@ -215,6 +222,9 @@ void setup() {
     }
     if (roomC == red) {
       myObjects.add(new Follower(x,y));
+    }
+    if (roomC == pink) {
+      myObjects.add(new Spawner(x,y));
     }
     x ++;
     if (x == map.width) {
