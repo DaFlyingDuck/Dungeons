@@ -179,7 +179,7 @@ class Hero extends GameObject {
     stroke(mentalAsylum5);
     fill(mentalAsylum5);
     circle(loc.x, loc.y, size);
-    currentAction.show(loc.x, loc.y, size, size * 1.5);
+    currentAction.show(loc.x, loc.y, size * 1.3, size * 1.5);
 
     // Show Health Bar
     rectMode(CORNER);

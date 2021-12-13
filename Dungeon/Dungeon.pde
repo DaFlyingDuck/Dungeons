@@ -125,20 +125,27 @@ final float HERO_SPEED_MAX = 4;
 
 
 // Enemy Attributes
-final int SPAWNER_LIVES = 50;
-final int SPAWNER_SIZE = 60;
-final int SPAWNER_XP = 3;
+final int   BOSS_LIVES = 200;
+final int   BOSS_SIZE = 75;
+final int   BOSS_XP = 12;
+
+final int   SPAWNER_LIVES = 50;
+final int   SPAWNER_SIZE = 60;
+final int   SPAWNER_XP = 3;
+final int   MINION_LIVES = 15;
+final int   MINION_SIZE = 25;
+final int   MINION_XP = 0;
 final float TURRET_BULLET_SPEED = 2.5;
-final int TURRET_LIVES = 45;
-final int TURRET_SIZE = 60;
-final int TURRET_XP = 3;
+final int   TURRET_LIVES = 45;
+final int   TURRET_SIZE = 60;
+final int   TURRET_XP = 3;
 final float FOLLOWER_SPEED = 1.5;
-final int FOLLOWER_LIVES = 30;
-final int FOLLOWER_SIZE = 50;
-final int FOLLOWER_XP = 2;
-final int DUMMY_LIVES = 20;
-final int DUMMY_SIZE = 50;
-final int DUMMY_XP = 100;
+final int   FOLLOWER_LIVES = 30;
+final int   FOLLOWER_SIZE = 50;
+final int   FOLLOWER_XP = 2;
+final int   DUMMY_LIVES = 20;
+final int   DUMMY_SIZE = 50;
+final int   DUMMY_XP = 100;
 
 
 // Types of Dropped Items
@@ -232,6 +239,8 @@ void setup() {
       y ++;
     } 
   }
+  
+  myObjects.add(new Boss(1,1));
   
 }
 
