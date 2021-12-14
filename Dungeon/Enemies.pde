@@ -35,7 +35,7 @@ class Enemy extends GameObject {
     xp = _xp;
   }
   
-  void act() {
+  void act() { // Minion Act
     super.act();
     
     int i = 0;
@@ -54,7 +54,6 @@ class Enemy extends GameObject {
       myHero.immune = HERO_DMG_IMMUNE;
     }
   }
-    
     
 
   void act(int hDrop) {
@@ -203,7 +202,7 @@ class Spawner extends Enemy {
 
     spwnTimer ++;
     if (spwnTimer > threshold) {
-      myObjects.add(new Minion(MINION_LIVES, loc.x, loc.y, roomX, roomY));
+      myObjects.add(new Minion(MINION_LIVES, loc.x, loc.y, roomX, roomY, red));
       spwnTimer = 0;
     }
   }
@@ -217,12 +216,14 @@ class Spawner extends Enemy {
 }
 
 class Minion extends Enemy {
+  
+  color c;
 
-
-  Minion(int _lives, float x, float y, int rX, int rY) {
+  Minion(int _lives, float x, float y, int rX, int rY, color _c) {
     super(_lives, MINION_SIZE,x, y, rX, rY, MINION_XP);
     
     dmg2Hero = 10;
+    c = _c;
   }
 
   void act() {
@@ -239,7 +240,7 @@ class Minion extends Enemy {
 
   void show() {
     noStroke();
-    fill(red);
+    fill(c);
     circle(loc.x, loc.y, size);
     fill(black);
     textSize(10);
@@ -252,24 +253,97 @@ class Boss extends Enemy {
   int spwnTimer;
   int spwnthreshold;
   
+  int shotTimer;
+  int shotthreshold;
+  
+  int bossPhase;
+  
   
   Boss(int rX, int rY) {
     super(BOSS_LIVES, BOSS_SIZE, rX, rY, BOSS_XP);
     loc = new PVector(width/2, height/2);
     dmg2Hero = 30;
     
+    // Shooting and Spawning
     spwnTimer = 0;
     spwnthreshold = 270;
+    shotTimer = 0;
+    shotthreshold = 90;
+    
+    bossPhase = 1;
+    
   }
   
   void act() {
-    super.act(); // Will not drop normal item
     
-    spwnTimer ++;
-    if (spwnTimer > spwnthreshold) {
-      myObjects.add(new Minion(MINION_LIVES + 5, loc.x, loc.y, roomX, roomY));
-      spwnTimer = 0;
+    loc.add(vel);
+    int i = 0;
+    while (i < myObjects.size()) {
+      GameObject myObj = myObjects.get(i);
+      if (myObj instanceof Bullet && isCollidingWith(myObj)) {
+        lives = lives - ((Bullet) myObj).dmg;
+        if (lives <= 0 && bossPhase == 1) {
+          lives = 200;
+          bossPhase = 2;
+          shotTimer = 0;
+          shotthreshold = 30;
+        }
+        myObj.lives = 0;
+      }
+      i ++;
     }
+  
+    // Collision with Hero
+    if (isCollidingWith(myHero) && myHero.immune <= 0) {
+      myHero.lives = myHero.lives - dmg2Hero;
+      myHero.immune = HERO_DMG_IMMUNE;
+    }
+    
+    
+    
+    if (lives <= BOSS_LIVES && bossPhase == 1) {
+      spwnTimer ++;
+      if (spwnTimer > spwnthreshold) {
+        myObjects.add(new Minion(MINION_LIVES + 5, loc.x, loc.y, roomX, roomY, mentalAsylum7));
+        spwnTimer = 0;
+      }
+    }
+    if (lives <= 2 * BOSS_LIVES / 3 && bossPhase == 1) {
+      shotTimer ++;
+      if (shotTimer > shotthreshold) {
+        myObjects.add(new Enemy_Bullet(loc.x, loc.y, roomX, roomY));
+        shotTimer = 0;
+      }
+    }
+    if (lives <= BOSS_LIVES / 3 && bossPhase == 1) {
+      if (myHero.lives > 0) {
+        vel = new PVector(myHero.loc.x - loc.x, myHero.loc.y - loc.y);
+        vel.setMag(BOSS_SPEED);
+      } else {
+        vel = new PVector(0, 0);
+      }
+    }
+    
+    
+    if (bossPhase == 2) {
+      
+      if (dist(loc.x, loc.y, width/2, height/2) > 2) {
+        vel = new PVector(width/2 - loc.x, height/2 - loc.y);
+        vel.setMag(1);
+      } else {
+        loc = new PVector(width/2, height/2);
+      }
+      
+      shotTimer ++;
+      if (shotTimer > shotthreshold) {
+        shotTimer = 0;
+        for(int u = 0; u < 15; u ++) {
+          myObjects.add(new Enemy_Bullet(roomX, roomY, loc.x, loc.y));
+        }
+      }
+      
+    }
+    
     
   }
   
@@ -279,4 +353,5 @@ class Boss extends Enemy {
     circle(loc.x, loc.y, size);
     super.show();
   }
+  
 }

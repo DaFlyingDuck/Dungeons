@@ -125,9 +125,11 @@ final float HERO_SPEED_MAX = 4;
 
 
 // Enemy Attributes
-final int   BOSS_LIVES = 200;
+final int   BOSS_LIVES = 300;
 final int   BOSS_SIZE = 75;
 final int   BOSS_XP = 12;
+final float BOSS_SPEED = 1;
+final float BOSS_BULLET_SPEED = 2.5;
 
 final int   SPAWNER_LIVES = 50;
 final int   SPAWNER_SIZE = 60;
@@ -135,6 +137,7 @@ final int   SPAWNER_XP = 3;
 final int   MINION_LIVES = 15;
 final int   MINION_SIZE = 25;
 final int   MINION_XP = 0;
+final float MINION_SPEED = 1.75;
 final float TURRET_BULLET_SPEED = 2.5;
 final int   TURRET_LIVES = 45;
 final int   TURRET_SIZE = 60;
