@@ -8,8 +8,15 @@ void game() {
   //println("Hero Health:", myHero.lives);
   //println(myHero.xp);
   //println(myObjects.size()); 
-  println(hUpgCost);
+  
+  scroll = 0;
+  
 }
+
+void mouseWheel(MouseEvent event) {
+  scroll = event.getCount();
+  println(scroll);
+  }
 
 void shop() {
   

@@ -1,6 +1,6 @@
 class Enemy_Bullet extends Enemy {
 
-
+  float deg;
 
   Enemy_Bullet (float x, float y, int rX, int rY) {
 
@@ -13,16 +13,18 @@ class Enemy_Bullet extends Enemy {
     roomY = rY;
   }
   
-  Enemy_Bullet(int rX, int rY, float x, float y) {
+  Enemy_Bullet (float x, float y, int rX, int rY, float _deg) {
+
     lives = 1;
-    size = 15;
+    size = 10;
     loc = new PVector(x, y);
+    deg = _deg;
+    vel = new PVector(cos(deg), sin(deg));
+    vel.setMag(BOSS_BULLET_SPEED);
     roomX = rX;
     roomY = rY;
-    vel = new PVector(random(-BOSS_BULLET_SPEED, BOSS_BULLET_SPEED),random(-BOSS_BULLET_SPEED, BOSS_BULLET_SPEED));
-    vel.setMag(BOSS_BULLET_SPEED);
   }
-    
+  
 
   void act() {
 

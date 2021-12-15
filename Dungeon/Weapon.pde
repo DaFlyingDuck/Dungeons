@@ -2,7 +2,7 @@ class Weapon {
   
   int shotTimer;
   int threshold;
-  int bulletSpeed;
+  float bulletSpeed;
   
   //Powerups
   int fireRate;
@@ -12,7 +12,7 @@ class Weapon {
   
   
   
-  Weapon(int t, int b) {
+  Weapon(int t, float b) {
     shotTimer = 0;
     threshold = t;
     bulletSpeed = b;

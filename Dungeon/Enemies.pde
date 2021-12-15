@@ -258,6 +258,8 @@ class Boss extends Enemy {
   
   int bossPhase;
   
+  float shotDeg;
+  
   
   Boss(int rX, int rY) {
     super(BOSS_LIVES, BOSS_SIZE, rX, rY, BOSS_XP);
@@ -266,11 +268,12 @@ class Boss extends Enemy {
     
     // Shooting and Spawning
     spwnTimer = 0;
-    spwnthreshold = 270;
+    spwnthreshold = 420;
     shotTimer = 0;
     shotthreshold = 90;
     
     bossPhase = 1;
+    shotDeg = 0;
     
   }
   
@@ -286,7 +289,7 @@ class Boss extends Enemy {
           lives = 200;
           bossPhase = 2;
           shotTimer = 0;
-          shotthreshold = 30;
+          shotthreshold = 3;
         }
         myObj.lives = 0;
       }
@@ -334,12 +337,22 @@ class Boss extends Enemy {
         loc = new PVector(width/2, height/2);
       }
       
+      //shotTimer ++;
+      //if (shotTimer > shotthreshold) {
+      //  shotTimer = 0;
+      //  for(int u = 0; u < 15; u ++) {
+      //    myObjects.add(new Enemy_Bullet(roomX, roomY, loc.x, loc.y));
+      //  }
+      //}
+      
       shotTimer ++;
       if (shotTimer > shotthreshold) {
-        shotTimer = 0;
-        for(int u = 0; u < 15; u ++) {
-          myObjects.add(new Enemy_Bullet(roomX, roomY, loc.x, loc.y));
+        shotDeg = shotDeg + (2 * PI / random(12,16));
+        if (shotDeg > 2 * PI) shotDeg = 0;
+        for(int u = 0; u < 2; u ++) {
+          myObjects.add(new Enemy_Bullet(loc.x, loc.y, roomX, roomY, shotDeg + random(-2 * PI / 20, 2 * PI / 20) ));
         }
+        shotTimer = 0;
       }
       
     }

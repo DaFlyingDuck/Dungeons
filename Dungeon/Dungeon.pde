@@ -8,6 +8,7 @@ final int gameover = 3;
 // Mouse and Keyboard Variables
 boolean mouseReleased;
 boolean wasPressed;
+float scroll;
 
 boolean wkey, skey, akey, dkey, pkey, spacekey, shiftkey;
 boolean key1, key2, key3, key4, key5, key6, key7, key8, key9;

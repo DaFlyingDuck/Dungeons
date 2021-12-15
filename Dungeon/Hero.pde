@@ -15,6 +15,7 @@ class Hero extends GameObject {
   float speedMax;
 
   AnimatedGIF currentAction;
+  int changeTimer;
 
   int sBoostC;
   float sBoost;
@@ -66,10 +67,26 @@ class Hero extends GameObject {
     if (key6) changeGun(6);
     if (key7) changeGun(7);
     if (key8) changeGun(8);
-    if (key9) changeGun(9);   
-
-
-
+    if (key9) changeGun(9);
+    
+    changeTimer ++;
+    if (scroll == 1 && currentGun != 3 && changeTimer > 60) {
+      currentGun ++;
+      changeTimer = 0;
+    }
+    if (scroll == 1 && currentGun == 3 && changeTimer > 60) { 
+      currentGun = 1;
+      changeTimer = 0;
+    }
+    if (scroll == -1 && currentGun != 1 && changeTimer > 60) { 
+      currentGun --;
+      changeTimer = 0;
+    }
+    if (scroll == -1 && currentGun == 1 && changeTimer > 60) {
+      currentGun = 3;
+      changeTimer = 0;
+    }
+    
 
     // Update and Shoot Gun
     myGuns[currentGun].update();
@@ -136,7 +153,7 @@ class Hero extends GameObject {
           sBoostC = 600;
           item.lives = 0;
         }
-        print(item.type);
+        //print(item.type);
       }
       i ++;
     }
