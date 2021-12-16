@@ -53,6 +53,10 @@ PImage rapidfire;
 PImage damageboost;
 PImage speedboost;
 
+PImage sniperRifle;
+PImage shotgun;
+PImage pistol;
+
 // Start Button
 Button startBut;
 
@@ -188,7 +192,9 @@ void setup() {
   damageboost = loadImage("items/DamageBoost/DamageBoost.png");
   speedboost = loadImage("items/SpeedBoost/SpeedBoost.png");
   
-  
+  sniperRifle = loadImage("guns/sniperRifle.png");
+  shotgun = loadImage("guns/shotgun.png");
+  pistol = loadImage("guns/pistol.png");
   
   startBut = new Button("START", width/2, height/2, 250, 100, mentalAsylum5, mentalAsylum2, 30);
   shopBut = new Button("SHOP", 62, 119, 64, 15, dpink, lpink, 5);
@@ -244,7 +250,7 @@ void setup() {
     } 
   }
   
-  myObjects.add(new Boss(1,1));
+  myObjects.add(new Boss(8,6));
   
 }
 

@@ -5,6 +5,7 @@ void game() {
   drawMiniMap();
   removeParticles();
   shop();
+  gunMenu();
   //println("Hero Health:", myHero.lives);
   //println(myHero.xp);
   //println(myObjects.size()); 
@@ -144,4 +145,15 @@ void removeParticles() {
     
   }
   
+}
+
+
+void gunMenu() {
+  if(myHero.currentGun == 1) {
+    image(sniperRifle, 100, 550, 150, 40);
+  } else if (myHero.currentGun == 2) {
+    image(pistol, 100, 550, 180, 100);
+  } else if (myHero.currentGun == 3) {
+    image(shotgun, 100, 550, 200, 100);
+  }
 }

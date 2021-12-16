@@ -27,8 +27,8 @@ class Hero extends GameObject {
     loc = new PVector(width/2, height/2);
     vel = new PVector(0, 0);
     size = 30;
-    roomX = 1;
-    roomY = 1;
+    roomX = 8;
+    roomY = 6;
 
     livesTop = HERO_LIVES_TOP;
     livesMax = HERO_LIVES_MAX;
@@ -70,19 +70,19 @@ class Hero extends GameObject {
     if (key9) changeGun(9);
     
     changeTimer ++;
-    if (scroll == 1 && currentGun != 3 && changeTimer > 60) {
+    if (scroll == 1 && currentGun != 3 && changeTimer > 30) {
       currentGun ++;
       changeTimer = 0;
     }
-    if (scroll == 1 && currentGun == 3 && changeTimer > 60) { 
+    if (scroll == 1 && currentGun == 3 && changeTimer > 30) { 
       currentGun = 1;
       changeTimer = 0;
     }
-    if (scroll == -1 && currentGun != 1 && changeTimer > 60) { 
+    if (scroll == -1 && currentGun != 1 && changeTimer > 30) { 
       currentGun --;
       changeTimer = 0;
     }
-    if (scroll == -1 && currentGun == 1 && changeTimer > 60) {
+    if (scroll == -1 && currentGun == 1 && changeTimer > 30) {
       currentGun = 3;
       changeTimer = 0;
     }
@@ -201,6 +201,8 @@ class Hero extends GameObject {
     // Show Health Bar
     rectMode(CORNER);
     noStroke();
+    fill(red);
+    rect(loc.x - 20, loc.y - 32, 40, 4, 7);
     fill(green);
     float z = map(lives, 0, livesTop, 0, 40);
     rect(loc.x - 20, loc.y - 32, z, 4, 7);
