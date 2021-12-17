@@ -9,6 +9,7 @@ void game() {
   //println("Hero Health:", myHero.lives);
   //println(myHero.xp);
   //println(myObjects.size()); 
+  println(myHero.roomX, myHero.roomY);
   
   scroll = 0;
   
@@ -47,7 +48,7 @@ void drawRoom() {
   // Draw Exits
   nRoom = map.get(myHero.roomX, myHero.roomY - 1);
   wRoom = map.get(myHero.roomX - 1, myHero.roomY);
-  sRoom = map.get(myHero.roomX, myHero.roomY + 1);  
+  sRoom = map.get(myHero.roomX, myHero.roomY +   1);  
   eRoom = map.get(myHero.roomX + 1, myHero.roomY);  
 
   noStroke();
@@ -63,6 +64,16 @@ void drawRoom() {
   }
   if(eRoom != white) {
     ellipse(width * 0.9, height/2, 100, 100);
+  }
+  
+  // Closed Door Boss Room
+  if (myHero.roomX == 8 && myHero.roomY == 6 && !bossBeat) {
+    fill(mentalAsylum3);
+    ellipse(width/2, height * 0.9, 110, 110);
+  }
+  if (myHero.roomX == 8 && myHero.roomY == 6 && bossBeat && !exitedBRoom) {
+    fill(mentalAsylum3);
+    ellipse(width * 0.1, height/2, 110, 110);
   }
   
   // Room floor square

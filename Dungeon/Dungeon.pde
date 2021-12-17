@@ -57,6 +57,8 @@ PImage sniperRifle;
 PImage shotgun;
 PImage pistol;
 
+PImage chest;
+
 // Start Button
 Button startBut;
 
@@ -135,6 +137,8 @@ final int   BOSS_SIZE = 75;
 final int   BOSS_XP = 12;
 final float BOSS_SPEED = 1;
 final float BOSS_BULLET_SPEED = 2.5;
+boolean bossBeat;
+boolean exitedBRoom;
 
 final int   SPAWNER_LIVES = 50;
 final int   SPAWNER_SIZE = 60;
@@ -196,6 +200,8 @@ void setup() {
   shotgun = loadImage("guns/shotgun.png");
   pistol = loadImage("guns/pistol.png");
   
+  chest = loadImage("items/closedChest.png");
+  
   startBut = new Button("START", width/2, height/2, 250, 100, mentalAsylum5, mentalAsylum2, 30);
   shopBut = new Button("SHOP", 62, 119, 64, 15, dpink, lpink, 5);
   backBut = new Button("BACK", width/12, width/12, 70, 70, pink, lpink, 35);
@@ -251,6 +257,9 @@ void setup() {
   }
   
   myObjects.add(new Boss(8,6));
+  myObjects.add(new Chest());
+  bossBeat = false;
+  exitedBRoom = true;
   
 }
 

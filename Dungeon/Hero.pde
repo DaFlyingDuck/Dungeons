@@ -168,17 +168,28 @@ class Hero extends GameObject {
       
     }
     if (wRoom != white && loc.x == width/2 - 3 * width/8 + size/2 && loc.y > height/2 - 50 && loc.y < height/2 + 50) {
-      roomX --;
-      loc = new PVector(width/2 + 3 * width/8 - size/2 - 10, height/2);
-
-      cleanUp();
+      if (roomX == 8 && roomY == 6 && bossBeat && !exitedBRoom) {
+        
+      } else {
+        roomX --;
+        loc = new PVector(width/2 + 3 * width/8 - size/2 - 10, height/2);
+        cleanUp();
+      }
       
     }
     if (sRoom != white && loc.y == height/2 + 3 * height/8 - size/2 && loc.x > width/2 - 50 && loc.x < width/2 + 50) {
-      roomY ++;
-      loc = new PVector(width/2, height/2 - 3 * height/8 + size/2 + 10);
-
-      cleanUp();
+      if (roomX == 8 && roomY == 6 && !bossBeat) {
+        
+      } else if (roomX == 8 && roomY == 6 && bossBeat) {
+        exitedBRoom = true;
+        roomY ++;
+        loc = new PVector(width/2, height/2 - 3 * height/8 + size/2 + 10);
+        cleanUp();
+      } else {
+        roomY ++;
+        loc = new PVector(width/2, height/2 - 3 * height/8 + size/2 + 10);
+        cleanUp();
+      }
       
     }
     if (eRoom != white && loc.x == width/2 + 3 * width/8 - size/2 && loc.y > height/2 - 50 && loc.y < height/2 + 50) {

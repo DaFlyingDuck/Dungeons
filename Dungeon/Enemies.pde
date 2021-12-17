@@ -291,6 +291,10 @@ class Boss extends Enemy {
           shotTimer = 0;
           shotthreshold = 3;
         }
+        if (lives <= 0 && bossPhase == 2) {
+          bossBeat = true;
+          exitedBRoom = false;
+        }
         myObj.lives = 0;
       }
       i ++;
