@@ -4,6 +4,7 @@ final int intro = 0;
 final int game = 1;
 final int pause = 2;
 final int gameover = 3;
+boolean opened;
 
 // Mouse and Keyboard Variables
 boolean mouseReleased;
@@ -68,6 +69,9 @@ Button backBut;
 Button hUpgBut;
 Button dUpgBut;
 Button sUpgBut;
+
+//Replay Button
+Button replayBut;
 
 //XP Shop 
 int hUpgNum;
@@ -157,7 +161,7 @@ final int   FOLLOWER_SIZE = 50;
 final int   FOLLOWER_XP = 2;
 final int   DUMMY_LIVES = 20;
 final int   DUMMY_SIZE = 50;
-final int   DUMMY_XP = 100;
+final int   DUMMY_XP = 1;
 
 
 // Types of Dropped Items
@@ -201,8 +205,10 @@ void setup() {
   pistol = loadImage("guns/pistol.png");
   
   chest = loadImage("items/closedChest.png");
+  opened = false;
   
   startBut = new Button("START", width/2, height/2, 250, 100, mentalAsylum5, mentalAsylum2, 30);
+  replayBut = new Button("Menu", width/2, height/2, 200, 100, mentalAsylum5, mentalAsylum2, 30);
   shopBut = new Button("SHOP", 62, 119, 64, 15, dpink, lpink, 5);
   backBut = new Button("BACK", width/12, width/12, 70, 70, pink, lpink, 35);
   hUpgBut = new Button("+", width/2 + 150, height/2, 40, 40, mentalAsylum4, mentalAsylum7, 20);

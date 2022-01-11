@@ -27,8 +27,8 @@ class Hero extends GameObject {
     loc = new PVector(width/2, height/2);
     vel = new PVector(0, 0);
     size = 30;
-    roomX = 8;
-    roomY = 6;
+    roomX = 1;
+    roomY = 1;
 
     livesTop = HERO_LIVES_TOP;
     livesMax = HERO_LIVES_MAX;
@@ -131,6 +131,7 @@ class Hero extends GameObject {
     immune --;
     if (lives <= 0) {
       for (int j = 0; j < 100; j ++) myObjects.add(new Particles(loc.x, loc.y, HERO_BLOOD));
+      mode = gameover;
     }
 
     //Collision with Dropped Items
@@ -206,7 +207,6 @@ class Hero extends GameObject {
     // Show Hero
     stroke(mentalAsylum5);
     fill(mentalAsylum5);
-    circle(loc.x, loc.y, size);
     currentAction.show(loc.x, loc.y, size * 1.3, size * 1.5);
 
     // Show Health Bar
